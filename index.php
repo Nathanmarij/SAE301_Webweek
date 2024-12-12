@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-
-<head>
+ <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page d'accueil</title>
@@ -68,5 +67,4 @@
         <?php include("footer.html") ?>
     </footer>
 </body>
-
 </html>
