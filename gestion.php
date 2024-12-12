@@ -52,7 +52,9 @@
                 </div>
             </div>
         </div>
-        <!--Filtre 3 pour le super admin gestion des admin-->
+        <!--Filtre 3 pour le super admin gestion des admin
+    utilisation d'un if 
+    si connecter comme super admin alors a accés à ce 3e paramètre -->
         <div class="gestionAdmin">
             <h2>Gestion des admin</h2>
             <div class="containerGestionAdmin">
@@ -78,6 +80,9 @@
         <a href=""><button type="button">En voir plus</button></a>
 
     </main>
+    <footer>
+        <?php include("footer.html")?>
+    </footer>
 </body>
 
 </html>
