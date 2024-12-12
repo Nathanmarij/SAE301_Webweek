@@ -1,34 +1,70 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+ <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Page d'accueil</title>
 </head>
+
 <body>
-<?php 
-    include("header.php"); 
-?>
-    <div class="main">
-        <h1>Bienvenue sur l'application de reservation !</h1>
-        <div>
-            <h2>Comment réserver ?</h2>
-            <img>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <header>
+        <?php include("header.php") ?>
+    </header>
+    <main class="accueil">
+        <div class="presentation">
+            <img src="" alt="">
+            <h2>Découvrez nos spectacles</h2>
+            <p>Explorez notre programmation et trouvez l'événement qui vous transporte.</p>
+            <a href="event.php"><button type="button">Reservez maintenant</button></a>
         </div>
-        <div>
-            <h2>Où trouver mes réservations ?</h2>
-            <img>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="confiance">
+            <div class="container">
+                <div id="bloc">
+                    <p>Facilité de réservation</p>
+                </div>
+                <div id="bloc">
+                    <p>Un accès direct aux événement</p>
+                </div>
+                <div id="bloc">
+                    <p>Paiement sécurisé</p>
+                </div>
+            </div>
+
         </div>
-        <div>
-            <h2>Laissez un avis</h2>
-            <img>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="recommandation">
+            <h3>Evénements recommandé</h3>
+            <!--Affichage de 3 événements-->
+            <div class="container">
+                <div class="card">
+                    <p>Date</p>
+                    <p>Titre</p>
+                    <div class="bandCard">
+                    <img src="" alt="icone horloge"><p>00h00</p>
+                    <p>Adresse</p>
+                    </div>
+                </div>
+            </div>
+            <p>Voir tout les événement -></p>
         </div>
-    </div>
-    <?php
-        include("footer.html");
-    ?>
+        <div class="categories">
+            <h3>Catégories</h3>
+            <div class="container">
+                <div id="bloc">
+                    <p>Musique</p>
+                </div>
+                <div id="bloc">
+                    <p>Danse</p>
+                </div>
+                <div id="bloc">
+                    <p>Théâtre</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <?php include("footer.html") ?>
+    </footer>
 </body>
 </html>

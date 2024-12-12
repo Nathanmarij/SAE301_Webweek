@@ -52,9 +52,37 @@
                 </div>
             </div>
         </div>
+        <!--Filtre 3 pour le super admin gestion des admin
+    utilisation d'un if 
+    si connecter comme super admin alors a accés à ce 3e paramètre -->
+        <div class="gestionAdmin">
+            <h2>Gestion des admin</h2>
+            <div class="containerGestionAdmin">
+                <!--utilisation d'un foreach pour afficher tous les événements-->
+                <div id="ligneGestion">
+                    <div id="droit">
+                        <p>Prénom</p>
+                    </div>
+                    <div id="centre">
+                        <p>Permission</p>
+                        <input type="checkbox" name="modifier" id="checkboxModifier"><label for="checkboxModifier">Modifier</label>
+                        <input type="checkbox" name="ajouter" id="checkboxAjouter"><label for="checkboxAjouter">Ajouter</label>
+                        <input type="checkbox" name="supprimer" id="checkboxSupprimer"><label for="checkboxSupprimer">Supprimer</label>
+                    </div>
+                    <div id="gauche">
+                        <a href=""><button type="button">Supprimer l'admin</button></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
         <a href=""><button type="button">En voir plus</button></a>
 
     </main>
+    <footer>
+        <?php include("footer.html")?>
+    </footer>
 </body>
 
 </html>

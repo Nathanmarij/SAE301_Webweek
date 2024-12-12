@@ -50,6 +50,9 @@
 
 
     </main>
+    <footer>
+        <?php include("footer.html")?>
+    </footer>
 </body>
 
 </html>
