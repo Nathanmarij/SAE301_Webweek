@@ -123,7 +123,7 @@ class Users {
          $this->date_naissance = $result[0]['date_naissance'];
          $this->telephone = $result[0]['telephone'];
          $this->statut_compte = $result[0]['statut_compte'];
-         $this->code_verification = $result[0]['code_verification'];
+         //$this->code_verification = $result[0]['code_verification'];
          return true; 
       }
       return false; 
