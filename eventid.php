@@ -1,3 +1,17 @@
+<?php
+include_once("config/ConfigBDD.php");
+$bdd = Database::getInstance()->getConnexion();
+
+// Récupération des informations de l'événement
+$requete = 'SELECT * FROM events WHERE id_events = 1';
+$stmt = $bdd->prepare($requete);
+$projet = $stmt->fetch(PDO::FETCH_ASSOC);
+$stmt->closeCursor();
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -33,7 +47,7 @@
         </div>
             <div>
                 <h3>Commentaires</h3>
-                <form method="POST" action="placesTraitement.php">
+                <form method="POST" action="traitements/t_form_commentaire.php">
                     <input type="text" id="commentaire"name="commentaire">
                     <input type="submit" id="submit" name="Envoyer">
                 </form>
