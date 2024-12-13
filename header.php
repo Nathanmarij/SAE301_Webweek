@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-light container" style="background-color: #121D3F;">
         <div class="d-flex w-100">
             <a class="navbar-brand" href="index.php" title="Accueil">
-                <img src="img/logo_conservatoire.svg" alt="Logo Conservatoire" width="150" height="Auto" class="d-inline-block align-top">
+                <img src="img/logo-reserv.png" alt="Logo Conservatoire" width="150" height="Auto" class="d-inline-block align-top">
             </a>
             <ul class="navbar-nav mx-auto align-self-center">
                 <li class="nav-item">
