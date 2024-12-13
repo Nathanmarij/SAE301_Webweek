@@ -4,13 +4,12 @@ class Database {
    private $connexion;
 
    private $host = 'localhost';
-   private $port = '3306';
    private $db_name = 'sae_301_conservatoire';
    private $user_name = 'root';
-   private $password = 'root';
+   private $password = '';
 
    private function __construct(){
-      $dsn = "mysql:host=$this->host;port=$this->port;dbname=$this->db_name";
+      $dsn = "mysql:host=$this->host;dbname=$this->db_name";
       try{
          $this->connexion = new PDO($dsn,$this->user_name, $this->password);
          $this->connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

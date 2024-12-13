@@ -1,23 +1,3 @@
-<?php
-include_once("config/ConfigBDD.php");
-$bdd = Database::getInstance()->getConnexion();
-
-
-//affiche les catégories des événements
-$requete = 'SELECT * FROM cat_events';
-$resultats = $bdd->query($requete);
-$tabCategories = $resultats->fetchAll(PDO::FETCH_ASSOC);
-$resultats->closeCursor();
-
-//affiche les événements
-$requete = 'SELECT * FROM events';
-$resultats = $bdd->query($requete);
-$tabEvent = $resultats->fetchAll(PDO::FETCH_ASSOC);
-$resultats->closeCursor();
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -32,25 +12,12 @@ $resultats->closeCursor();
     include("header.php"); 
 ?>
     <div>
-        <?php
-        // Boucle pour afficher les catégories des événements
-        foreach ($tabCategories as $categorie) {
-        ?>
-        <form action="event.php" method="get">
-            <input type="hidden" name="id_cat_events" value="<?= $categorie['id_cat_events'] ?>">
-        <h2><?= $categorie['nom'] ?></h2>
-
-        </form>
-           
-        <?php
-        }
-        ?>
-        
+        <h2>Musique</h2>
+        <h2>Théatre</h2>
+        <h2>Danse</h2>
     </div>
     <div>
-        
         <?php
-        // Boucle pour afficher 6 événements
         for ($i=0; $i<6; $i++){
         ?>
             <div>
