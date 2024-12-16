@@ -13,7 +13,38 @@
   --bs-black: #000;
   --bs-white: #fff;
   --bs-gray: #6c757d;
-  
+  --color-primary: #121d3f;      
+	--color-warning: #FFB714;  
+	--color-success: #7EBB43;       
+	--color-danger: #FF4D83;  
+  --color-text-yellow: #FFB714; 
+}
+/*Couleurs*/
+
+.bg-primary {
+  background-color: var(--color-primary) !important;
+}
+
+.bg-warning {
+  background-color: var(--color-warning) !important;
+}
+
+.bg-success {
+  background-color: var(--color-success) !important;
+}
+
+.bg-danger {
+  background-color: var(--color-danger) !important;
+}
+
+
+.btn-primary {
+  border-color: var(--color-white) !important;
+}
+
+.text-decoration-none {
+  text-decoration: none !important;
+  color: var(--color-primary);
 }
 
 *,
