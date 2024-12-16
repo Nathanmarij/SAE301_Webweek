@@ -25,9 +25,9 @@ $sql = "
    FROM 
 		events AS e
    JOIN 
-		cat_events AS c ON c.id_cat_events  = e.id_events
+		cat_events AS c ON c.id_cat_events  = e.id_cat_events
 	JOIN 
-		lieux AS l ON l.id_lieux = e.id_events
+		lieux AS l ON l.id_lieux = e.id_lieux
 ";
 
 

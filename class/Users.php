@@ -10,7 +10,7 @@ class Users {
    public  $email;
    public  $mdp;
    public  $date_naissance;
-   public $statut_compte;
+   public  $statut_compte;
    public  $telephone;
    public  $id_roles;
 
@@ -63,26 +63,6 @@ class Users {
       return $result > 0; 
    }
 
-   // récupère le code de vérification associé à l'email de l'utilisateur courant
-   public function getVerificationCode() {
-      $actionsBDD = ActionsBDD::getInstance();
-
-      $sql = "SELECT code_verification FROM users WHERE mail = :email";
-      $result = $actionsBDD->getDonnees($sql, ['email' => $this->email]);
-      
-      return !empty($result) ? $result[0]['code_verification'] : null;
-   }
-
-   // récupère le code de vérification pour un email spécifique
-   public function getVerificationCodeByEmail($email) {
-      $actionsBDD = ActionsBDD::getInstance();
-
-      $sql = "SELECT code_verification FROM users WHERE mail = :email LIMIT 1";
-      $result = $actionsBDD->getDonnees($sql, ['email' => $email]);
-      
-      return !empty($result) ? $result[0]['code_verification'] : null;
-   }
-
    // mettre à jour le statut du compte et le code de vérification
    public function activerCompte() {
       $actionsBDD = ActionsBDD::getInstance();
@@ -96,38 +76,58 @@ class Users {
       return true;  
    }
 
-   // vérifier si un email est déjà enregistré
-   public function emailExists() {
+   // méthode pour connecter un utilisateur
+   public function connecter($email, $mdp) {
       $actionsBDD = ActionsBDD::getInstance();
-
-      $sql = "SELECT COUNT(*) FROM users WHERE mail = :email";
-      $params = [':email' => $this->email];
-
-      $result = $actionsBDD->getDonnees($sql, $params);
-      return $result[0]['COUNT(*)'] > 0; 
-   }
-
-   // méthode pour récupérer un utilisateur par son email
-   public function getUserByEmail($email) {
-      $actionsBDD = ActionsBDD::getInstance();
-      $params = [':email' => $this->email];
-
       $sql = "SELECT * FROM users WHERE mail = :email";
-      $result = $actionsBDD->getDonnees($sql, $params);
-      if (count($result) > 0) {
-         // si l'utilisateur existe, initialiser les propriétés de l'objet
-         $this->nom = $result[0]['nom'];
-         $this->prenom = $result[0]['prenom'];
-         $this->email = $result[0]['mail'];
-         $this->mdp = $result[0]['mdp'];
-         $this->date_naissance = $result[0]['date_naissance'];
-         $this->telephone = $result[0]['telephone'];
-         $this->statut_compte = $result[0]['statut_compte'];
-         $this->code_verification = $result[0]['code_verification'];
-         return true; 
+      $user = $actionsBDD->getDonnees($sql, ['email' => $email]);
+
+      if (!empty($user)) {
+         $user = $user[0];
+
+         // vérifier si le mot de passe est correct
+         if (password_verify($mdp, $user['mdp'])) {
+
+            $_SESSION['email'] = $user['mail'];
+            $_SESSION['id_users'] = $user['id_users'];
+            $_SESSION['nom'] = $user['nom'];
+            $_SESSION['prenom'] = $user['prenom'];
+            $_SESSION['role'] = $user['id_roles'];
+
+            $response = [
+               "status" => "success",
+               "message" => "Connexion réussie",
+            ];
+            
+            if ($user['id_roles'] == 1) {
+               $response["redirect"] = './event.php';
+            } else {
+               $response["redirect"] = 'admin_dashboard.php';
+            }
+            
+            return $response;
+         } else {
+            return ["status" => "error", "message" => "Mot de passe incorrect.", "redirect" => null];
+         }
+      }  else {
+         return ["status" => "error", "message" => "Ce email n'est associé à aucun compte.", "redirect" => null];
       }
-      return false; 
    }
-   
+
+   // méthode pour déconnecter un utilisateur
+   function deconnecter() {
+      // effacer toutes les variables de session
+      session_unset();
+      // détruire la session
+      session_destroy();
+      // rediriger vers la page de connexion ou d'accueil
+      header("Location: ./connexion_compte.php");
+      exit;
+   }
+
+   function estConnecte() {
+      return isset($_SESSION['id_users']) && isset($_SESSION['email']) && isset($_SESSION['role']);
+   }
+  
 }
 ?>

@@ -1,0 +1,185 @@
+.dm-serif-text-regular {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .dm-serif-text-regular-italic {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+.row>* {
+    margin-top: 1vw;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+p {
+    margin-bottom: 0px;
+}
+header {
+    background-color: #121D3F;
+}
+.navbar-nav a {
+    color: white;
+}
+.navbar-nav a:hover {
+    color: #FF4D83;
+}
+.nav-item a {
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+.presentation {
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+}
+.concervatoir img {
+    width: 100%;
+    height: auto;
+}
+.decouvrir {
+    padding-left: 3vw;
+    position: relative;
+}
+
+.decouvrir a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 3vw;
+}
+
+.decouvrir h2{
+    font-size: 4vw;
+    color: #121D3F;
+    padding-bottom: 3vw;
+}
+.decouvrir p {
+    font-size: 1.5vw;
+}
+.decouvrir button{
+    background-color: #FFB714;
+    border: solid 2px #FFB714;
+    color: #FAFAFA;
+    font-weight: 600;
+    width: 20vw;
+    height: 4vw;
+    border-radius: 0.5vw;
+    transition: 0.3s ease, color 0.3s ease;
+}
+.decouvrir button:hover{
+    background-color: #FAFAFA;
+    color: #FFB714;
+    font-weight: 600;
+}
+
+.confiance {
+    background-color: #FF4D83;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1vw 0;
+}
+
+.confiance-content {
+    position: relative;
+    height: 15vw;
+    width: 30vw;
+    background-position: center;
+    background-size: cover;
+    border-radius: 0.3vw;
+    margin: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Assure que le pseudo-élément ne déborde pas */
+}
+
+.confiance-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Couche sombre (noir à 50%) */
+    z-index: 1; /* Place le pseudo-élément sous le texte */
+}
+
+.confiance-content p {
+    font-size: 2vw;
+    font-weight: 500;
+    color: #FAFAFA;
+    position: relative;
+    z-index: 2; /* Place le texte au-dessus du filtre */
+}
+
+.visu {
+    position: relative;
+    display: flex; /* Active le mode flexbox */
+    flex-direction: column; /* Aligne les éléments enfants (les <p>) en colonne */
+    justify-content: center; /* Centre les éléments verticalement */
+    align-items: center; /* Centre les éléments horizontalement */
+    text-align: center;
+    height: 23vw;
+    width: 17vw;
+    background-position: center;
+    background-size: cover;
+    color: #FAFAFA;
+    font-size: 1.5vw;
+}
+.visu p{
+    z-index: 2;
+}
+.date{
+    z-index: 2;
+}
+.jour{
+    font-family: DM Serif Text;
+    z-index: 2;
+    font-size: 4vw;
+}
+.visu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Couche sombre (noir à 50%) */
+    z-index: 1; /* Place le pseudo-élément sous le texte */
+    border-top-left-radius: 1vw;
+    border-top-right-radius: 1vw;
+}
+.bandCard {
+    background-color: #121D3F;
+    width: 17vw;
+    color:#FAFAFA;
+    border-bottom-left-radius: 1vw;
+    border-bottom-right-radius: 1vw;
+    display: flex;
+
+}
+.bandCard img{
+    height: 1.3vw;
+    width: auto;
+    margin-top: 10px;
+}
+.bandCard p {
+    margin: auto;
+    text-align: center;
+}
+.heure {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 5px;
+
+}
+.heure p{
+    text-align: center;
+}
