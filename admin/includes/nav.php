@@ -1,14 +1,15 @@
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" style="background-color:#121d3f !important; color:white;">
+<nav class="nav-colo myApp-topnav navbar navbar-expand" >
    <a class="navbar-brand ps-3" href="./">
       <img src="../assets/images/half-wheel-white.svg" class="img-fluid" width="16" height="auto" alt="">  
-      Espace Admin </a>
+      Espace Admin 
+   </a>
 
    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
    
    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
          <div class="input-group d-none">
             <input class="form-control" type="text" placeholder="Recherche..." aria-label="Recherche..." aria-describedby="btnNavbarSearch" />
-            <button style="background-color:#121d3f !important; color:white;" class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+            <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
          </div>
    </form>
    

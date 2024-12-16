@@ -1,17 +1,4 @@
-]);
-        //echo json_encode(["status" => "success", "message" => "L'avis a bien été ajouté.", "redirect" => 'eventid.php?id=1#a']);
-    } else {
-        echo json_encode(["status" => "error", "avisError" => "L'avis n'a pas pu étre ajouté.", "redirect" => null]);
-    }
-    //header("Location: ../eventid.php?id=$id");
-    //var_dump( $_POST["commentaire"]);
-    //$_GET["commentaire"] = $_POST["commentaire"];
-}
-//test 2
-﻿
-ririne
-ririne19
- 
+
 <?php
 session_start();
 include_once("config/ConfigBDD.php");

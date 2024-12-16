@@ -9,7 +9,7 @@ require_once('fonctions/verifierConnexionEtDroitsAdmin.php');
 $stats = getDonneesStats();
 
 // vérifier si la personne a le droit à cette page
-verifierConnexionEtDroits();
+//verifierConnexionEtDroits();
 
 ?>
 <!DOCTYPE html>
@@ -30,10 +30,10 @@ verifierConnexionEtDroits();
 </head>
 <body class="sb-nav-fixed">
    <?php include('includes/nav.php'); ?>
-   <div id="layoutSidenav">
+   <div id="mySidebar">
       <?php include('includes/menu.php'); ?>
       
-      <div id="layoutSidenav_content">
+      <div id="myContenu">
          <main>
             <div class="container-fluid px-4">
                <h1 class="mt-4"><img src="../assets/images/half-wheel-yellow.svg" class="img-fluid" width="32" height="auto" alt=""> Tableau de bord</h1>
