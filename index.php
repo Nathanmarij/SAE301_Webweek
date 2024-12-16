@@ -37,7 +37,7 @@
                     </div>
                     <div class="col bg-image d-flex justify-content-center align-items-center confiance-content" 
                     style="background-image: url('img/acces.avif');">
-                        <p>Un accès direct aux événement</p>
+                        <p>Un accès direct aux événements</p>
                     </div>
                     <div class="col bg-image d-flex justify-content-center align-items-center confiance-content" 
                     style="background-image: url('img/paiement.jpg');">
@@ -46,29 +46,90 @@
                 </div>
             </div>
         </div>
-        <div class="recommandation">
-            <h3>Evénements recommandé</h3>
+        <div class= "recommandation">
             <!--Affichage de 3 événements-->
             <div class="container">
-                <div class="row g-0">
-                    <div class="col card">
-                        <div class="visu" style="background-image: url('img/affiche-1.jpeg');">
-                            <p>jeudi</p>
-                            <p class="jour">12</p>
-                            <p>DEC</p>
-                            <p>CONFÉRENCE SUR LES MÉCANISMES DE JEU ET MASTER-CLASSE / CUIVRES</p>
-                        </div>
-                        <div class="bandCard">
-                            <div class="heure">
-                                <img src="img/horloge-icon.svg" alt="icone-horloge">
-                                <p>00h00</p>
-                            </div>
-                            <p>Adresse</p>
-                        </div>
+            <h3>Evénements recommandé</h3>
+    <div class="row g-0 justify-content-center"> <!-- Centrer les colonnes horizontalement -->
+        <div class="col-12 col-md-4 event d-flex flex-column align-items-center"> <!-- Centrer le contenu de chaque colonne -->
+            <a href="eventid.php">
+                <div class="visu" style="background-image: url('img/affiche-1.jpeg');">
+                    <p>jeudi</p>
+                    <p class="jour">12</p>
+                    <p>DEC</p>
+                    <img src="img/ligne-hor.svg" alt="hor">
+                    <p>CONFÉRENCE SUR LES MÉCANISMES DE JEU ET MASTER-CLASSE / CUIVRES</p>
+                </div>
+                <div class="bandCard">
+                    <div class="heure">
+                        <img src="img/horloge-icon.svg" alt="icone-horloge">
+                        <p>19h00</p>
+                    </div>
+                    <img src="img/ligne-vertical.svg" alt="vert" id="vert">
+                    <div class="adresse">
+                        <img src="img/localisation.svg" alt="loc">
+                        <p>Auditorium - ATELIERS DES ARTS</p>
                     </div>
                 </div>
+            </a>
+        </div>
+
+        <div class="col-12 col-md-4 event d-flex flex-column align-items-center">
+            <a href="eventid.php">
+                <div class="visu" style="background-image: url('img/affiche\ 2.jpg  ');">
+                    <p>samedi</p>
+                    <p class="jour">14</p>
+                    <p>DEC</p>
+                    <img src="img/ligne-hor.svg" alt="hor">
+                    <p>BAL DE NOËL / MUSIQUES ET DANSES TRADITIONNELLES</p>
+                </div>
+                <div class="bandCard">
+                    <div class="heure">
+                        <img src="img/horloge-icon.svg" alt="icone-horloge">
+                        <p>17h30</p>
+                    </div>
+                    <img src="img/ligne-vertical.svg" alt="vert" id="vert">
+                    <div class="adresse">
+                        <img src="img/localisation.svg" alt="loc">
+                        <p>Auditorium - ATELIERS DES ARTS</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-12 col-md-4 event d-flex flex-column align-items-center">
+            <a href="eventid.php">
+                <div class="visu" style="background-image: url('img/affiche-1.jpeg');">
+                    <p>jeudi</p>
+                    <p class="jour">12</p>
+                    <p>DEC</p>
+                    <img src="img/ligne-hor.svg" alt="hor">
+                    <p>CONFÉRENCE SUR LES MÉCANISMES DE JEU ET MASTER-CLASSE / CUIVRES</p>
+                </div>
+                <div class="bandCard">
+                    <div class="heure">
+                        <img src="img/horloge-icon.svg" alt="icone-horloge">
+                        <p>19h00</p>
+                    </div>
+                    <img src="img/ligne-vertical.svg" alt="vert" id="vert">
+                    <div class="adresse">
+                        <img src="img/localisation.svg" alt="loc">
+                        <p>Auditorium - ATELIERS DES ARTS</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="container">
+            <div class="row g-0 justify-content-center"> <!-- Centrer les colonnes horizontalement -->
+                <div class="col-12 col-md-8 event d-flex flex-column align-items-center"></div>
+                <div class="col-12 col-md-4 event d-flex flex-column align-items-end voir-plus">
+                    <a href="event.php">Voir tout les événement ></a>
+                </div>
             </div>
-            <p>Voir tout les événement -></p>
+        </div>
+    </div>
+</div>
+
         </div>
         <div class="categories">
             <h3>Catégories</h3>
@@ -87,8 +148,3 @@
 
     </main>
 
-    <footer>
-        <?php include("footer.html") ?>
-    </footer>
-</body>
-</html>
