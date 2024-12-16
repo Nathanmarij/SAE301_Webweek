@@ -28,7 +28,7 @@ if (!isset($_GET["id_event"]) || !isset($_SESSION["id_user"])) {
     //var_dump( $_POST["commentaire"]);
     //$_GET["commentaire"] = $_POST["commentaire"];
 }
-//test 
+//test 2
 
 
 ?>
