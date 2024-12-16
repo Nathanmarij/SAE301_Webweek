@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once("../config/ConfigBDD.php"); 
+include_once("../class/Users.php"); 
 
 header('Content-Type: application/json'); 
 
@@ -13,36 +14,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo json_encode(["status" => "error", "message" => "Tous les champs sont requis.", "redirect" => null]);
         exit;
     }
+    
+    $user = new Users('', '', $email, '', '', ''); 
 
-    // vérification de l'email et du mot de passe dans la base de données
-    try {
-        // connexion à la base de données
-        $pdo = Database::getInstance()->getConnexion();
+    // appel de la méthode connecter et des réponses
+    $response = $user->connecter($email, $mdp);
 
-        // préparer la requête pour récupérer l'utilisateur par email
-        $stmt = $pdo->prepare("SELECT * FROM users WHERE mail = :email");
-        $stmt->execute(['email' => $email]);
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        // vérifier si l'utilisateur existe et si le mot de passe est correct
-        if ($user && password_verify($mdp, $user['mdp'])) {
-            // connexion réussie, démarrer la session
-            $_SESSION['email'] = $email;
-            $_SESSION['role'] = $user['id_roles']; //mettre le rôle de l'utilisateur en session
-
-            // redirection en fonction du rôle
-            if ($user['id_roles'] == 1) { // c'est un utilisateur
-               $redirect = 'espace_user.php';  
-            } else {
-               
-            }
-            echo json_encode(["status" => "success", "message" => "Connexion réussie", "redirect" => $redirect]);
-        } else {
-            echo json_encode(["status" => "error", "message" => "Email ou mot de passe incorrect.", "redirect" => null]);
-        }
-    } catch (Exception $e) {
-        echo json_encode(["status" => "error", "message" => "Une erreur s'est produite. Veuillez réessayer.", "redirect" => null]);
-    }
+    echo json_encode($response);
 }
 
 // fonction pour valider les données entrées

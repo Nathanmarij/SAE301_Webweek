@@ -1,5 +1,5 @@
 <?php
-//require_once("ActionsBDD.php");
+require_once("ActionsBDD.php");
 
 class Events {
    // propriétés
@@ -33,13 +33,30 @@ class Events {
    }
 
    // créer un événement
-   public function creerEvent() {
-      $requete = "INSERT INTO events (nom, date_events, description, prix, alt_img, url_img, nb_places_prevues, nb_places_reservees, id_lieux, id_cat_events)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-      $params = [$this->nom, $this->date_events, $this->description, $this->prix, $this->alt_img, $this->url_img, 
-         $this->nb_places_prevues, $this->nb_places_reservees, $this->id_lieux, $this->id_cat_events];
-      return ActionsBDD::getInstance()->insertData($requete, $params);
+   public function creer() {
+      $actionsBDD = ActionsBDD::getInstance();
+      
+      $sql = "INSERT INTO events (nom, date_events, description, prix, alt_img, url_img, nb_places_prevues, nb_places_reservees, id_lieux, id_cat_events)
+         VALUES (:nom, :date_events, :description, :prix, :alt_img, :url_img, :nb_places_prevues, :nb_places_reservees, :id_lieux, :id_cat_events)";
+      
+      $params = [
+         ':nom' => $this->nom,
+         ':date_events' => $this->date_events,
+         ':description' => $this->description,
+         ':prix' => $this->prix,
+         ':alt_img' => $this->alt_img,
+         ':url_img' => $this->url_img,
+         ':nb_places_prevues' => $this->nb_places_prevues,
+         ':nb_places_reservees' => $this->nb_places_reservees,
+         ':id_lieux' => $this->id_lieux,
+         ':id_cat_events' => $this->id_cat_events
+      ];
+   
+      $result = $actionsBDD->insertDonnees($sql, $params);
+      
+      return $result > 0;
    }
+   
 
     // afficher les informations d'un événement
     public function afficherEvent() {

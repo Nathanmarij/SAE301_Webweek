@@ -17,7 +17,12 @@ include_once("../class/Users.php");
       $user = new Users($nom, $prenom, $email, $mdp, $date_naissance, $telephone);
 
       // vérifier si l'email existe déjà
-      if ($user->emailExists()) {
+
+      $actionsBDD = ActionsBDD::getInstance();
+      $sql = "SELECT COUNT(*) as total FROM users WHERE mail = :email";
+      $result = $actionsBDD->getDonnees($sql, [':email' => $email]);
+
+      if ($result[0]['total'] > 0) {
          echo json_encode(["status" => "error", "message" => "Cet email est déjà utilisé."]);
          exit;
       } else {
@@ -27,7 +32,9 @@ include_once("../class/Users.php");
             $_SESSION['email'] = $email;
 
             // récupérer le code de vérification généré depuis la base de données
-            $code_verification = $user->getVerificationCodeByEmail($email); 
+            $sql = "SELECT code_verification FROM users WHERE mail = :email LIMIT 1";
+            $result = $actionsBDD->getDonnees($sql, [':email' => $email]);
+            $code_verification = $result[0]['code_verification'];
 
             // envoyer l'email avec le code de vérification
             //envoiVerificationEmail($email, $code_verification);

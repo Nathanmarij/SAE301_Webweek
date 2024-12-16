@@ -17,26 +17,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $user = new Users('', '', $email, '', '', '', 1);
 
    // récupérer l'utilisateur par email
-   if (!$user->getUserByEmail($email)) {
+   $actionsBDD = ActionsBDD::getInstance();
+   $sql = "SELECT * FROM users WHERE mail = :email";
+   $result = $actionsBDD->getDonnees($sql, [':email' => $email]);
+
+   if (empty($result)) {
       echo json_encode(["status" => "error", "message" => "Utilisateur non trouvé."]);
       exit;
-   }
+   }else{
+      $user->code_verification = $result[0]['code_verification'];
 
-   // vérifier si le code saisi correspond à celui dans la base de données
-   if ($code_saisi !== $user->code_verification) {
-      echo json_encode(["status" => "error", "message" => "Le code de vérification est incorrect."]);
-      exit;
-   }
+      // vérifier si le code saisi correspond à celui dans la base de données
+      if ($code_saisi !== $user->code_verification) {
+         echo json_encode(["status" => "error", "message" => "Le code de vérification est incorrect."]);
+         exit;
+      }else {
+         // si le code est correct, changer le statut du compte en 'actif' et réinitialiser le code de vérification
+         if ($user->activerCompte()) {
+            unset($_SESSION['email']);
+            
+            $_SESSION['successMessage'] = "Compte activé avec succès. Vous pouvez maintenant vous connecter.";
+            echo json_encode(["status" => "success", "message" => "Bon !"]);
+         } else {
+            echo json_encode(["status" => "error", "message" => "Erreur lors de l'activation du compte."]);
+         }
+      }
 
-   // si le code est correct, changer le statut du compte en 'actif' et réinitialiser le code de vérification
-   if ($user->activerCompte()) {
-      unset($_SESSION['email']);
       
-      $_SESSION['successMessage'] = "Compte activé avec succès. Vous pouvez maintenant vous connecter.";
-      echo json_encode(["status" => "success", "message" => "Bon !"]);
-   } else {
-      echo json_encode(["status" => "error", "message" => "Erreur lors de l'activation du compte."]);
    }
+
 }
 
 function valider_input($donnees) {
