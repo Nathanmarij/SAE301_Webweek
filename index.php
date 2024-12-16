@@ -59,8 +59,10 @@
                             <p>CONFÉRENCE SUR LES MÉCANISMES DE JEU ET MASTER-CLASSE / CUIVRES</p>
                         </div>
                         <div class="bandCard">
-                            <img src="img/horloge.svg" alt="icone-horloge">
-                            <p>00h00</p>
+                            <div class="heure">
+                                <img src="img/horloge-icon.svg" alt="icone-horloge">
+                                <p>00h00</p>
+                            </div>
                             <p>Adresse</p>
                         </div>
                     </div>
