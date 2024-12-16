@@ -19,11 +19,11 @@ body {
 }
 
 .color-red {
-   color: var(--color-danger);
+  color: var(--color-danger);
 }
 
 .color-yellow{
-   color: var(--color-text-yellow);
+  color: var(--color-text-yellow);
 }
 
 h1 {
