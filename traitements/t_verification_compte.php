@@ -5,12 +5,12 @@ include_once("../class/Users.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    // vérifier que l'email est dans la session
-   if (!isset($_SESSION['email'])) {
+   if (!isset($_SESSION['email_a'])) {
       echo json_encode(["status" => "error", "message" => "Aucun email trouvé dans la session."]);
       exit;
    }
 
-   $email = $_SESSION['email'];
+   $email = $_SESSION['email_a'];
    $code_saisi = isset($_POST['code_verification']) ? valider_input($_POST['code_verification']) : '';
 
    // créer une instance de l'utilisateur
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       }else {
          // si le code est correct, changer le statut du compte en 'actif' et réinitialiser le code de vérification
          if ($user->activerCompte()) {
-            unset($_SESSION['email']);
+            unset($_SESSION['email_a']);
             
             $_SESSION['successMessage'] = "Compte activé avec succès. Vous pouvez maintenant vous connecter.";
             echo json_encode(["status" => "success", "message" => "Bon !"]);

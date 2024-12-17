@@ -4,7 +4,6 @@ include_once("../config/ConfigBDD.php");
 include_once("../class/Users.php");
 include_once("../class/ActionsBDD.php");
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $actionsBDD = ActionsBDD::getInstance();
 
@@ -30,24 +29,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Récupérer les avis mis à jour
         $reqAvis = "SELECT * FROM avis WHERE id_events = ?";
         $avis = ActionsBDD::getInstance()->getDonnees($reqAvis, [$id]);
+// Préparer le HTML des avis à renvoyer
+$avisHTML = "";
+foreach ($avis as $dAvis) {
+    $avisHTML .= "<div><strong>{$_SESSION['nom']}</strong><p>{$dAvis['description']}</p></div>";
+}
 
-        // Préparer le HTML des avis à renvoyer
-        $avisHTML = "";
-        foreach ($avis as $dAvis) {
-            $avisHTML .= "<div><strong>{$_SESSION['nom']}</strong><p>{$dAvis['description']}</p></div>";
-        }
-
-        echo json_encode([
-            "status" => "success",
-            "message" => "L'avis a bien été ajouté.",
-            "avisHTML" => $avisHTML,  // Inclure les avis dans la réponse
-        ]);
-        //echo json_encode(["status" => "success", "message" => "L'avis a bien été ajouté.", "redirect" => 'eventid.php?id=1#a']);
-    } else {
-        echo json_encode(["status" => "error", "avisError" => "L'avis n'a pas pu étre ajouté.", "redirect" => null]);
-    }
-    //header("Location: ../eventid.php?id=$id");
-    //var_dump( $_POST["commentaire"]);
-    //$_GET["commentaire"] = $_POST["commentaire"];
+echo json_encode([
+    "status" => "success",
+    "message" => "L'avis a bien été ajouté.",
+    "avisHTML" => $avisHTML,  // Inclure les avis dans la réponse
+]);
+//echo json_encode(["status" => "success", "message" => "L'avis a bien été ajouté.", "redirect" => 'eventid.php?id=1#a']);
+} else {
+echo json_encode(["status" => "error", "avisError" => "L'avis n'a pas pu étre ajouté.", "redirect" => null]);
+}
+//header("Location: ../eventid.php?id=$id");
+//var_dump( $_POST["commentaire"]);
+//$_GET["commentaire"] = $_POST["commentaire"];
 }
 //test 2
+?>
