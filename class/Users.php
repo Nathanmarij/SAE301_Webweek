@@ -127,7 +127,7 @@ class Users {
       session_unset();
       session_destroy();
 
-      header("Location: ../connexion_compte.php");
+      header("Location: ./connexion_compte.php");
       exit;
    }
 

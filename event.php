@@ -40,7 +40,7 @@ if (!isset($_SESSION['email'])) {
       
       <!-- Template Mustache -->
       <script id="template-events" type="text/html">
-      {{#events}}
+         {{#events}}
          <div class="col-12 col-lg-3 col-md-6 col-sm-12">
             <a href="eventid.php?id={{id_events}}&nom={{#nom}}{{.}}{{/nom}}">
                <div class="card-new">
