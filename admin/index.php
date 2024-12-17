@@ -27,6 +27,7 @@ $stats = getDonneesStats();
 
    <!-- Lien vers le fichier CSS personnalisé -->
    <link href="../assets/css/styles_admin.css" rel="stylesheet" />
+   <link href="style/styleFooter.css" rel="stylesheet"/>
 </head>
 <body class="sb-nav-fixed">
    <?php include('includes/nav.php'); ?>
