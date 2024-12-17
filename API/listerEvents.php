@@ -10,7 +10,6 @@ $donnees = array();
 $donnees["status"] = "OK";
 
 // requete pour récupérer les événements
-
 $sql = "
 	SELECT 
 		c.id_cat_events,
@@ -20,12 +19,12 @@ $sql = "
 		e.date_events,
 		e.alt_img,
 		e.url_img,
-		l.id_lieux ,
+		l.id_lieux,
 		l.adresse
    FROM 
 		events AS e
    JOIN 
-		cat_events AS c ON c.id_cat_events  = e.id_cat_events
+		cat_events AS c ON c.id_cat_events = e.id_cat_events
 	JOIN 
 		lieux AS l ON l.id_lieux = e.id_lieux
 ";

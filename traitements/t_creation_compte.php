@@ -29,7 +29,7 @@ include_once("../class/Users.php");
          // enregistrer l'utilisateur
          if ($user->creer()) {
             
-            $_SESSION['email'] = $email;
+            $_SESSION['email_a'] = $email;
 
             // récupérer le code de vérification généré depuis la base de données
             $sql = "SELECT code_verification FROM users WHERE mail = :email LIMIT 1";

@@ -18,6 +18,10 @@
 p {
     margin-bottom: 0px;
 }
+a {
+    text-decoration: none; /* Supprime le soulignement par défaut */
+    color: inherit; /* Cela évite également que le lien ait une couleur bleue par défaut */
+}
 header {
     background-color: #121D3F;
 }
@@ -116,23 +120,37 @@ header {
     position: relative;
     z-index: 2; /* Place le texte au-dessus du filtre */
 }
+.container {
+    align-items: center;
+}
+.recommandation {
+    margin-top: 5vw;
+}
 
 .visu {
     position: relative;
     display: flex; /* Active le mode flexbox */
     flex-direction: column; /* Aligne les éléments enfants (les <p>) en colonne */
-    justify-content: center; /* Centre les éléments verticalement */
     align-items: center; /* Centre les éléments horizontalement */
     text-align: center;
     height: 23vw;
-    width: 17vw;
+    width: 19vw;
     background-position: center;
     background-size: cover;
     color: #FAFAFA;
     font-size: 1.5vw;
+    border-top-left-radius: 1vw;
+    border-top-right-radius: 1vw;
 }
+.visu p:first-child {
+    margin-top: 1.5vw;
+  }
 .visu p{
     z-index: 2;
+}
+.visu img {
+    z-index: 1;
+    width: 70%;
 }
 .date{
     z-index: 2;
@@ -156,7 +174,7 @@ header {
 }
 .bandCard {
     background-color: #121D3F;
-    width: 17vw;
+    width: 19vw;
     color:#FAFAFA;
     border-bottom-left-radius: 1vw;
     border-bottom-right-radius: 1vw;
@@ -166,11 +184,18 @@ header {
 .bandCard img{
     height: 1.3vw;
     width: auto;
+}
+.heure img {
     margin-top: 10px;
 }
-.bandCard p {
+.adresse {
     margin: auto;
-    text-align: center;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: 1.2vw;
+}
+.adresse p{
+    font-size: 1vw;
 }
 .heure {
     width: 30%;
@@ -182,4 +207,29 @@ header {
 }
 .heure p{
     text-align: center;
+    font-size: 1vw;
+}
+.adresse img {
+    width: 1.3vw;
+    height: auto;
+    margin-right: 1vw;
+}
+.event a{
+    text-decoration: none;
+}
+#vert {
+    height: 3vw;
+    object-fit: fill;
+    z-index: 1;
+    margin-left: 0.7vw;
+}
+.voir-plus {
+    width: 17vw;
+    margin-top: 3vw;
+}
+.voir-plus a{
+    text-align: end;
+    font-weight: 500;
+    font-size: 1.3vw;
+    color: #FF4D83;
 }
