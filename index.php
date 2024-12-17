@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="style/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="style/styleFooter.css">
     <title>Page d'accueil</title>
 </head>
 
@@ -124,7 +123,7 @@
             <div class="row g-0 justify-content-center"> <!-- Centrer les colonnes horizontalement -->
                 <div class="col-12 col-md-8 event d-flex flex-column align-items-center"></div>
                 <div class="col-12 col-md-4 event d-flex flex-column align-items-end voir-plus">
-                    <a href="event.php">Voir tout les événement ></a>
+                    <a href="event.php">Voir tout les événements ></a>
                 </div>
             </div>
         </div>
@@ -132,19 +131,23 @@
 </div>
 
         </div>
-        <div class="categories">
+        <div class="container">
             <h3>Catégories</h3>
-            <div class="container">
-                <div id="bloc">
-                    <p>Musique</p>
+            <div class="row categories justify-content-center">
+                <div class="col cat d-flex flex-column align-items-center" style="background-image: url('img/musique.jpg');">
+                    <a href="event.php"><p>Musique</p></a>
                 </div>
-                <div id="bloc">
-                    <p>Danse</p>
+                <div class="col cat d-flex flex-column align-items-center" style="background-image: url('img/danse.jpg');">
+                    <a href="event.php"><p>Danse</p></a>
                 </div>
-                <div id="bloc">
-                    <p>Théâtre</p>
+                <div class="col cat d-flex flex-column align-items-center" style="background-image: url('img/theatre.jpg');">
+                    <a href="event.php"><p>Théâtre</p></a>
                 </div>
             </div>
         </div>
 
     </main>
+
+<?php
+ include("footer.html");
+ ?>

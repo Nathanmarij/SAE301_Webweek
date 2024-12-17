@@ -217,19 +217,75 @@ header {
 .event a{
     text-decoration: none;
 }
+
 #vert {
     height: 3vw;
     object-fit: fill;
     z-index: 1;
     margin-left: 0.7vw;
+    margin-top: 5px;
 }
 .voir-plus {
     width: 17vw;
     margin-top: 3vw;
 }
-.voir-plus a{
+.voir-plus a {
     text-align: end;
     font-weight: 500;
     font-size: 1.3vw;
     color: #FF4D83;
+    text-decoration: none; 
+    position: relative;
 }
+
+.voir-plus a::after {
+    content: "";
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 0; 
+    height: 2px; 
+    background-color: #FF4D83;
+    transition: width 0.2s ease; 
+}
+
+.voir-plus a:hover::after {
+    width: 100%; 
+}
+.cat {
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    position: relative;
+    width: 19vw;
+    height: 30vw;
+    margin: 2vw;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden; 
+}
+
+.cat::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1; 
+}
+
+.cat a {
+    position: relative;
+    z-index: 2; 
+    text-decoration: none;
+    color: white; 
+    font-size: 5vw;
+    font-weight: 500;
+    text-align: center; 
+}
+
+
+
+
