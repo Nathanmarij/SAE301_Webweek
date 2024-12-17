@@ -4,10 +4,10 @@ session_start();
 include_once("config/ConfigBDD.php");
 include_once("class/ActionsBDD.php");
 
-if (!isset($_SESSION['email'])) {
+/*if (!isset($_SESSION['email'])) {
     header("Location: ./connexion_compte.php");
     exit();
-}
+}*/
 
 if (isset($_GET['id'])) {
     $eventId = valider_input($_GET['id']);
