@@ -23,7 +23,7 @@ $stats = getDonneesStats();
    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
    <!-- Lien vers la feuille de style Bootstrap 5 -->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
 
    <!-- Lien vers le fichier CSS personnalisé -->
    <link href="../assets/css/styles_admin.css" rel="stylesheet" />

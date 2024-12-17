@@ -59,7 +59,7 @@ class ActionsBDD{
       try {
          $stmt = $this->dbh->prepare($requete);
          $stmt->execute($params);
-         return $stmt->rowCount(); // retourne le nombre de lignes affectées (lignes mises à jour)
+         return $stmt->rowCount() > 0; // retourne le nombre de lignes affectées (lignes mises à jour)
       } catch (PDOException $e) {
          echo "Échec lors de la mise à jour des données : " . $e->getMessage();
          return false;

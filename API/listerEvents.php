@@ -33,9 +33,9 @@ $sql = "
 $resultats = $recuperer->getDonnees($sql);
 
 
-if(!empty($resultats)){
+if (!empty($resultats)) {
 	$donnees["events"] = $resultats;
-}else {
+} else {
 	$donnees["status"] = "Aucun événement récupéré";
 }
 

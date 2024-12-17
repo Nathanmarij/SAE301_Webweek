@@ -1,5 +1,5 @@
 <div id="myMenu_nav">
-   <nav class="myApp-sidenav accordion myApp-sidenav-light" id="sidenavAccordion">
+   <nav class="myApp-sidenav accordion myApp-sidenav-light">
       <div class="myApp-sidenav-menu">
          <div class="nav">
             <a class="nav-link" href="./">
@@ -12,14 +12,14 @@
                Utilisateurs
                <div class="myApp-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
             </a>
-            <div class="collapse" id="users" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+            <div class="collapse" id="users">
                
                <nav class="myApp-sidenav-menu-nested nav accordion" id="users">
                   <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#gestionUsers" aria-expanded="false" aria-controls="gestionUsers">
                         Gestions Utilisateurs
                         <div class="myApp-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                   </a>
-                  <div class="collapse" id="gestionUsers" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                  <div class="collapse" id="gestionUsers">
                         <nav class="myApp-sidenav-menu-nested nav">
                            <a class="nav-link" href="login.html">Ajouter utilisateur</a>
                            <a class="nav-link" href="liste_users.php">Liste utilisateurs</a>
@@ -30,7 +30,7 @@
                         Gestion Réservations
                         <div class="myApp-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                   </a>
-                  <div class="collapse" id="events" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                  <div class="collapse" id="events">
                         <nav class="myApp-sidenav-menu-nested nav">
                            <a class="nav-link" href="401.html">Liste réservations</a>
                         </nav>
@@ -42,7 +42,7 @@
                Évènements
                <div class="myApp-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
             </a>
-            <div class="collapse" id="evenements" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+            <div class="collapse" id="evenements">
                <nav class="myApp-sidenav-menu-nested nav">
                   <a class="nav-link" href="login.html">Ajouter évènement</a>
                   <a class="nav-link" href="register.html">Liste évènements</a>
@@ -53,7 +53,7 @@
                Avis
                <div class="myApp-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
             </a>
-            <div class="collapse" id="avis" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+            <div class="collapse" id="avis">
                <nav class="myApp-sidenav-menu-nested nav">
                   <a class="nav-link" href="login.html">Gestions avis</a>
                   <a class="nav-link" href="register.html">Avis suspects</a>
@@ -64,7 +64,7 @@
                Administrateurs
                <div class="myApp-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
             </a>
-            <div class="collapse" id="admin" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+            <div class="collapse" id="admin">
                <nav class="myApp-sidenav-menu-nested nav">
                   <a class="nav-link" href="login.html">Ajouter administrateur</a>
                   <a class="nav-link" href="register.html">Liste administrateurs</a>

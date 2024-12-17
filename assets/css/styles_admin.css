@@ -34,21 +34,37 @@
   color: var(--color-primary);
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+.dropdown-item:active{
+  background-color: var(--color-primary) !important;
 }
 
-
-body {
-  margin: 0;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
 .myApp-topnav {
   background-color: var(--color-primary) !important;
   color: var(--color-white) !important;
+}
+
+.page-link {
+  color: var(--color-danger);
+  text-decoration: none;
+  padding: 8px 12px;
+  margin: 0 4px;
+  border: 1px solid var(--color-danger);
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.page-link:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.actives {
+  background-color: var(--color-white); 
+  color:  var(--color-white); 
+  border: none;
+  font-weight: bold; 
+  transform: scale(1.1); 
+  border-radius: 8px; 
 }
 
 .myApp-nav-fixed #mySidebar #myMenu_nav, .myApp-nav-fixed .myApp-topnav {
@@ -57,12 +73,6 @@ body {
   right: 0;
   left: 0;
   z-index: 1030;
-}
-
-
-html,
-body {
-  height: 100%;
 }
 
 #mySidebar {
