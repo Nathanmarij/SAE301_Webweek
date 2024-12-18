@@ -1,60 +1,92 @@
+<?php
+
+session_start();
+include_once("config/ConfigBDD.php");
+include_once("class/ActionsBDD.php");
+
+if (!isset($_SESSION['email'])) {
+    header("Location: ./connexion_compte.php");
+    exit();
+}
+$email = $_SESSION['email'];
+
+$requete = "SELECT prenom, nom, telephone, mail, date_naissance FROM users WHERE mail = :email";
+$params = [':email' => $email];
+
+$userDetails = ActionsBDD::getInstance()->getDonnees($requete, $params);
+
+if (!$userDetails) {
+    header("Location: ./connexion_compte.php");
+    exit();
+}
+
+$users = $userDetails[0];
+if (isset($_POST['deco'])) {
+    session_start();
+    session_unset();
+    session_destroy();
+    header("Location: connexion_compte.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mon Compte</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="style/style.css" rel="stylesheet">
-    <link href="style/styleFooter.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/styleuser.css">
 </head>
 
 <body>
     <header>
-        <?php include("header.php") ?>
+        <?php include("header.php"); ?>
     </header>
     <main class="compteUtilisateur">
-        <h2>Mon compte</h2>
+        <h2 class="text-center text-uppercase fw-bold mb-4">Mon compte</h2>
         <div class="containerInfo">
             <div class="ligneInfo">
                 <p>Prénom</p>
-                <div id="blocTxt">
-                    <!--en php récupération du prénom-->
+                <div id="blocInfo">
+                    <input type="text" value="<?php echo htmlspecialchars($users['prenom']); ?>" readonly>
                 </div>
             </div>
             <div class="ligneInfo">
                 <p>Nom</p>
-                <div id="blocTxt">
-                    <!--en php récupération du nom-->
+                <div id="blocInfo">
+                    <input type="text" value="<?php echo htmlspecialchars($users['nom']); ?>" readonly>
+                </div>
+            </div>
+            <div class="ligneInfo">
+                <p>Date de naissance</p>
+                <div id="blocInfo">
+                    <input type="text" value="<?php echo htmlspecialchars($users['date_naissance']); ?>" readonly>
                 </div>
             </div>
             <div class="ligneInfo">
                 <p>Téléphone</p>
-                <div id="blocTxt">
-                    <!--en php récupération du téléphone-->
+                <div id="blocInfo">
+                    <input type="text" value="<?php echo htmlspecialchars($users['telephone']); ?>" readonly>
                 </div>
             </div>
             <div class="ligneInfo">
-                <p>Adresse mail</p>
-                <div id="blocTxt">
-                    <!--en php récupération du adresse mail-->
+                <p>Adresse Email</p>
+                <div id="blocInfo">
+                    <input type="email" value="<?php echo htmlspecialchars($users['mail']); ?>" readonly>
                 </div>
             </div>
-            <div class="ligneInfo">
-                <p>Mot de passe</p>
-                <div id="blocTxt">
-                    <!--en php récupération du mot de passe caché-->
+            <form method="POST" action="">
+                <div class="col">
+                    <button type="submit" name="deco" id="button" class="btn btn-danger">Déconnexion</button>
                 </div>
-            </div>
-
+            </form>
         </div>
-        <a href=""><button type="button" id="button">Modifier mes informations</button></a>
-
-
     </main>
     <footer>
-        <?php include("footer.html")?>
+        <?php include("footer.html"); ?>
     </footer>
 </body>
 
