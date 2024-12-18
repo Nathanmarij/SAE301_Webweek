@@ -1,0 +1,95 @@
+
+.compteUtilisateur {
+    padding: 40px 0;
+}
+
+.containerInfo {
+    max-width: 600px;
+    margin: auto;
+}
+
+.compteUtilisateur h2 {
+    color: #f84771;
+}
+
+.containerInfo button {
+    display: block;
+    margin: 20px auto 0;
+    background-color: #FFB714;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.containerInfo button:hover {
+    background-color: #d3980e;
+}
+
+.ligneInfo {
+    background-color: #121D3F; 
+    color: #ffffff; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.ligneInfo p {
+    margin: 0;
+    flex: 1;
+}
+
+#blocInfo {
+    flex: 2;
+}
+
+#blocInfo input {
+    background-color: #f9f9f9;
+    color: #121D3F;
+    border: none;
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-align: left;
+}
+
+@media screen and (max-width: 800px) {
+    .containerInfo {
+        padding: 0 20px;
+    }
+
+    .compteUtilisateur {
+        padding: 20px 0;
+    }
+
+    .compteUtilisateur h2 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .ligneInfo {
+        flex-direction: column; 
+        text-align: center;
+    }
+
+    .ligneInfo p {
+        margin-bottom: 10px;
+    }
+
+    #blocInfo input {
+        width: 100%;
+        padding: 8px 12px;
+        text-align: center;
+    }
+
+    .containerInfo button {
+        width: 100%;
+        padding: 12px 20px;
+        
+    }
+}
+
