@@ -1,8 +1,8 @@
 <?php
-session_start();
-include_once("config/ConfigBDD.php");
-include_once("class/Users.php");
-$user = new Users('', '', '', '', '', '', '');
-// déconnecter l'utilisateur
-$user->deconnecter();
+    session_start();
+    session_unset();
+    session_destroy();
+
+    header("Location: ./index.php");
+    exit;
 ?>

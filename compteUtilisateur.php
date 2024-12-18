@@ -39,6 +39,8 @@ if (isset($_POST['deco'])) {
     <title>Mon Compte</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style/styleuser.css">
+    <link rel="stylesheet" href="style/styleFooter.css">
+    <link rel="stylesheet" href="style/style.css">
 </head>
 
 <body>
@@ -78,7 +80,7 @@ if (isset($_POST['deco'])) {
                     <input type="email" value="<?php echo htmlspecialchars($users['mail']); ?>" readonly>
                 </div>
             </div>
-            <form method="POST" action="">
+            <form method="POST" action="deconnexion.php">
                 <div class="col">
                     <button type="submit" name="deco" id="button" class="btn btn-danger">Déconnexion</button>
                 </div>

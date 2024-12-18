@@ -4,6 +4,10 @@ include_once("../config/ConfigBDD.php");
 include_once("../class/Users.php");
 include_once("../class/ActionsBDD.php");
 
+if (!isset($_SESSION["id_users"])) {
+    header("Location: ./connexion_compte.php");
+    exit();
+} else {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $actionsBDD = ActionsBDD::getInstance();
 
@@ -27,12 +31,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result) {
 
         // Récupérer les avis mis à jour
-        $reqAvis = "SELECT * FROM avis WHERE id_events = ?";
+        $reqAvis = "SELECT u.nom, u.prenom, a.description,a.id_events FROM avis as a JOIN 
+                    users AS u ON a.id_users = u.id_users WHERE id_events = ?";
         $avis = ActionsBDD::getInstance()->getDonnees($reqAvis, [$id]);
 // Préparer le HTML des avis à renvoyer
 $avisHTML = "";
 foreach ($avis as $dAvis) {
-    $avisHTML .= "<div><strong>{$_SESSION['nom']}</strong><p>{$dAvis['description']}</p></div>";
+    $avisHTML .= "<div><strong>{$dAvis['nom']} {$dAvis['prenom']}</strong><p>{$dAvis['description']}</p></div>";
 }
 
 echo json_encode([
@@ -47,6 +52,7 @@ echo json_encode(["status" => "error", "avisError" => "L'avis n'a pas pu étre a
 //header("Location: ../eventid.php?id=$id");
 //var_dump( $_POST["commentaire"]);
 //$_GET["commentaire"] = $_POST["commentaire"];
+}
 }
 //test 2
 ?>
