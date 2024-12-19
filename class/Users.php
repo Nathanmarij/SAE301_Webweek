@@ -121,16 +121,6 @@ class Users {
          return ["status" => "error", "message" => "Ce email n'est associé à aucun compte.", "redirect" => null];
       }
    }
-
-   // méthode pour déconnecter un utilisateur
-   function deconnecter() {
-      session_unset();
-      session_destroy();
-
-      header("Location: ./connexion_compte.php");
-      exit;
-   }
-
    // méthode pour savoir si l'utilisateur est connecté
    function estConnecte() {
       return isset($_SESSION['id_users']) && isset($_SESSION['email']) && isset($_SESSION['role']);
