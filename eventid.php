@@ -1,12 +1,11 @@
 <?php
-session_start();
 include_once("config/ConfigBDD.php");
 include_once("class/ActionsBDD.php");
 
-if (!isset($_SESSION['email'])) {
+/*if (!isset($_SESSION['email'])) {
     header("Location: ./connexion_compte.php");
     exit();
-}
+}*/
 
 if (isset($_GET['id'])) {
     $eventId = valider_input($_GET['id']);
@@ -61,6 +60,7 @@ function valider_input($donnees)
     <link href="style/styleeventid.css" rel="stylesheet">
 
 </head>
+
 
 <body>
     <?php
@@ -122,7 +122,6 @@ function valider_input($donnees)
         <!-- Affichage des avis -->
         <div id="avisList">
                     <?php
-                   
                     $reqAvis = "SELECT u.nom, u.prenom, a.description,a.id_events FROM avis as a JOIN 
                     users AS u ON a.id_users = u.id_users WHERE id_events = ?";
                     $avis = ActionsBDD::getInstance()->getDonnees($reqAvis, [$eventId]);
