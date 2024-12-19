@@ -1,4 +1,3 @@
-
 <?php
 include_once("config/ConfigBDD.php");
 include_once("class/ActionsBDD.php");
@@ -52,11 +51,14 @@ function valider_input($donnees)
     <title>Évènements - <?php echo htmlspecialchars($event['nom']); ?></title>
     <meta name="description" content="" />
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <!-- Lien vers la feuille de style Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Lien vers le fichier CSS personnalisé -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="style/style.css" rel="stylesheet">
     <link href="style/styleFooter.css" rel="stylesheet">
+    <!-- Lien vers la feuille de style Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Lien vers le fichier CSS personnalisé -->
+    <link href="style/styleeventid.css" rel="stylesheet">
+
 </head>
 
 
@@ -64,54 +66,76 @@ function valider_input($donnees)
     <?php
     include("header.php");
     ?>
-    <div class="container my-5">
-        <div class="row">
-            <div class="col-md-6">
-                <img src="assets/images/events/<?php echo htmlspecialchars($event['url_img']); ?>" class="img-fluid" alt="<?php echo htmlspecialchars($event['nom']); ?>">
-            </div>
-            <div class="col-md-6">
-                <h1><?php echo htmlspecialchars($event['nom']); ?></h1>
-                <h2><?php echo htmlspecialchars($event['date_events']); ?></h2>
-                <h3><?php echo htmlspecialchars($event['adresse']); ?></h3>
-                <p><?php echo nl2br(htmlspecialchars($event['description'])); ?></p>
+    <div>
+        <div class="container my-5 section_event">
+            <div class="row align-items-center">
+                <div class="img_event col-md-5 ">
+                    <img src="img/affiche-1.jpeg" class="img-fluid"
+                        alt="<?php echo htmlspecialchars($event['nom']); ?>">
+                </div>
+                <div class="section_info_event col-md-7 ">
+                    <h1 class="fw-bold text-uppercase"><?php echo htmlspecialchars($event['nom']); ?></h1>
+                    <h2><?php echo htmlspecialchars($event['date_events']); ?></h2>
+                    <h2><?php echo htmlspecialchars($event['adresse']); ?></h2>
+                    <p class="mt-4"><?php echo nl2br(htmlspecialchars($event['description'])); ?></p>
+                    <div class="btn_info mt-4 text-center"><br>
+                        <h3>Prix d'entrée: <?php echo htmlspecialchars($event['prix']); ?> €</h3>
 
-                <h4>Prix d'entrée: <?php echo htmlspecialchars($event['prix']); ?> €</h4>
-
-                <form method="POST" action="placesTraitement.php">
-                    <div class="mb-3">
-                        <label for="nb_places" class="form-label">Nombre de places</label>
-                        <input type="number" name="nb_places" id="nb_places" class="form-control" min="0" max="100" value="0" />
+                        <form method="POST" action="placesTraitement.php"
+                            class="d-flex justify-content-center align-items-center">
+                            <input type="submit" id="submit" name="Réserver" value="RÉSERVER" class="btn fw-bold px-4">
+                            <input type="number" name="nb_places" id="nb_places" value="1" min="1" max="23"
+                                class="form-control text-center" style="width: 60px;">
+                        </form>
+                        <p class="mt-2 text-center">23 places restantes</p>
                     </div>
-                    <button type="submit" name="Réserver" class="btn btn-primary">Réserver</button>
-                </form>
-
-                <h5>Carte de l'événement</h5>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2819.177678260139!2d3.8824898751446915!3d45.04161616153661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f5fa5472eba401%3A0x30eb4863ad1d5cee!2sTh%C3%A9%C3%A2tre%20du%20Puy-En-Velay!5e0!3m2!1sfr!2sfr!4v1733996907912!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-
-                <h5>avis</h5>
-                <form id="avisForm" method="POST" action="traitements/t_form_commentaire.php">
-                    <textarea name="avis" id="avis" class="form-control mb-2" placeholder="Laissez un avis..."></textarea>
-                    <div id="avisError" class="error"></div>
-                    <input type="hidden" name="id_event" value="<?php echo htmlspecialchars($_GET['id']); ?>">
-                    <button type="submit" class="btn btn-secondary">Envoyer</button>
-                </form>
-
-                <!-- Affichage des avis -->
-                <div id="avisList">
+                </div>
+            </div>
+        </div><br>
+        <div class="container my-5 ">
+            <h2 class="fw-bold text-uppercase mb-4">Adresse</h2>
+            <div class="section_carte text-center">
+                <div class="map-responsive">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2818.9379115111497!2d3.8777036000000007!3d45.046481799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f5fbaa7f00dad7%3A0xaac997d8c5188e3e!2sAteliers%20des%20Arts%20-%20Conservatoire%20%C3%A0%20Rayonnement%20D%C3%A9partemental!5e0!3m2!1sfr!2sfr!4v1734358802645!5m2!1sfr!2sfr"
+                        width="1200" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <a
+                    href="https://www.google.com/maps/dir//Ateliers+des+Arts+-+Conservatoire+à+Rayonnement+Départemental+32+Rue+86E+Régiment+d'Infanterie+43000+Le+Puy-en-Velay/@45.0464818,3.8777036,16z/data=!4m8!4m7!1m0!1m5!1m1!1s0x47f5fbaa7f00dad7:0xaac997d8c5188e3e!2m2!1d3.8777101!2d45.0464891?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D">
+                    <button class="btn px-4">Itinéraire</button>
+                </a>
+            </div>
+            <div class="section_avis ">
+                <h2 class="fw-bold text-uppercase mb-4">Avis</h2>
+                <div class="border border-danger rounded p-4 mb-5 text-center">
+                    <h3 class="text-center mb-3 fw-bold">Laisser mon avis</h3>
+                    <form id="avisForm" method="POST" action="traitements/t_form_commentaire.php">
+                        <textarea name="avis" id="avis" class="form-control mb-2"
+                            placeholder="Laissez un avis..."></textarea>
+                        <div id="avisError" class="error"></div>
+                        <input type="hidden" name="id_event" value="<?php echo htmlspecialchars($_GET['id']); ?>">
+                        <button type="submit" class="btn px-4">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Affichage des avis -->
+        <div id="avisList">
                     <?php
                     $reqAvis = "SELECT u.nom, u.prenom, a.description,a.id_events FROM avis as a JOIN 
                     users AS u ON a.id_users = u.id_users WHERE id_events = ?";
                     $avis = ActionsBDD::getInstance()->getDonnees($reqAvis, [$eventId]);
+                    ?>
+                    <div class="container">
+                        <?php
                     foreach ($avis as $dAvis) {
                         echo "<div><strong>{$dAvis['nom']} {$dAvis['prenom']}</strong><p>{$dAvis['description']}</p></div>";
                     }
                     ?>
+                    </div>
                 </div>
 
-            </div>
-        </div>
     </div>
-
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 

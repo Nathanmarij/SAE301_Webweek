@@ -1,0 +1,51 @@
+article{
+    padding-top: 20px;
+}
+
+
+h2 {
+    color: #f84771;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    
+}
+
+h2.text-center {
+    font-size: 2rem;
+    color: #f84771;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+
+.mentions {
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.mentions ul {
+    list-style: disc inside;
+    padding-left: 15px;
+    margin: 15px 0;
+}
+
+.mentions ul li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #f84771;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.txt_article{
+    margin-top: 30px;
+}
