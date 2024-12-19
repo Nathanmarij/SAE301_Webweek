@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Préparer le HTML des avis à renvoyer
 $avisHTML = "";
 foreach ($avis as $dAvis) {
-    $avisHTML .= "<div><strong>{$dAvis['nom']} {$dAvis['prenom']}</strong><p>{$dAvis['description']}</p></div>";
+    $avisHTML .= "<div class='container'><strong>{$dAvis['nom']} {$dAvis['prenom']}</strong><p>{$dAvis['description']}</p></div>";
 }
 
 echo json_encode([
