@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 include_once("config/ConfigBDD.php");
@@ -77,12 +76,15 @@ function valider_input($donnees)
 
                 <h4>Prix d'entrée: <?php echo htmlspecialchars($event['prix']); ?> €</h4>
 
-                <form method="POST" action="placesTraitement.php">
+                <form id="reservationForm" method="POST" action="traitements/t_form_reservation.php">
                     <div class="mb-3">
+                        <input type="hidden" name="id_event" value="<?php echo htmlspecialchars($_GET['id']); ?>">
                         <label for="nb_places" class="form-label">Nombre de places</label>
                         <input type="number" name="nb_places" id="nb_places" class="form-control" min="0" max="100" value="0" />
+                        <div class="reservationError"></div>
                     </div>
                     <button type="submit" name="Réserver" class="btn btn-primary">Réserver</button>
+
                 </form>
 
                 <h5>Carte de l'événement</h5>
@@ -172,8 +174,55 @@ function valider_input($donnees)
 
         });
     </script>
+    <!--mettre le mê ajax qu'au dessus pour ensuite rediriger directement sur la page reservation.php-->
+    <!--Script pour envoyer le formulaire via AJAX et l'afficher sur la page reservation.php-->
+    <script>
+        $(document).ready(function() {
+            $("#reservationForm").submit(function(event) {
+                event.preventDefault(); // Empêche l'envoi normal du formulaire
+
+                // Réinitialiser les messages d'erreur
+                $(".error").text("");
+                $(".form-control").removeClass("is-invalid"); // Effacer les erreurs sur les champs
+
+                var valid = true; // Variable de contrôle de la validité du formulaire
+
+                if ($("#nb_places").val() === "") {
+                    $("#reservationError").text("Il faut sélectionner un nombre de place.");
+                    $("#nb_places").addClass("is-invalid");
+                    valid = false;
+
+                }
+
+                if (valid) {
+                    // Récupérer les données du formulaire
+                    var formData = $(this).serialize();
+
+                    // Envoi des données via AJAX
+                    $.ajax({
+                        type: "POST",
+                        url: "traitements/t_form_reservation.php", // Votre fichier de traitement PHP
+                        data: formData,
+                        dataType: "json", // Attendez une réponse JSON
+                        success: function(response) {
+                            if (response.status === "success") {
+                                window.location.href = "reservation_aVenir.php"; // Redirige vers la page des réservations
+                            } else {
+                                $("#message").html('<div class="alert alert-danger">' + response.message + '</div>');
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error("Erreur AJAX : ", xhr.responseText);
+                            $("#message").html('<div class="alert alert-danger">Une erreur s\'est produite. Veuillez réessayer.</div>');
+                        }
+                    });
+
+                }
+            });
 
 
+        });
+    </script>
     <?php
     include("footer.html");
     ?>
