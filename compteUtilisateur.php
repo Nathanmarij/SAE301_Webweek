@@ -21,12 +21,15 @@ if (!$userDetails) {
 }
 
 $users = $userDetails[0];
-if (isset($_POST['deco'])) {
+function deconnexion() {
     session_start();
     session_unset();
     session_destroy();
     header("Location: connexion_compte.php");
     exit();
+}
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['deco'])) {
+    deconnexion();
 }
 ?>
 

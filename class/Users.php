@@ -124,6 +124,7 @@ class Users {
 
    // méthode pour déconnecter un utilisateur
    function deconnecter() {
+      session_start();
       session_unset();
       session_destroy();
 
