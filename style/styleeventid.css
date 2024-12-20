@@ -1,0 +1,115 @@
+.img_event img {
+    filter: brightness(0.9);
+}
+
+.section_event {
+    font-family: Arial, sans-serif;
+    color: #121D3F;
+}
+
+.section_info_event h1 {
+    font-size: 2.2rem;
+    color: #121D3F;
+}
+
+.section_info_event h2 {
+    font-size: 1.2rem;
+}
+
+.section_info_event p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+form input[type="submit"] {
+    background-color: #f84771;
+    color: white;
+    border-radius: 5px 0px 0px 5px;
+    text-transform: uppercase;
+}
+
+form input[type="submit"]:hover {
+    background-color: #d2365e;
+    color: white;
+}
+
+
+
+form input[type="number"] {
+    border: 1px solid #f84771;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.btn_info h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #121D3F;
+}
+
+.btn_info p {
+    font-size: 0.9rem;
+    color: #000000;
+    text-align: left;
+
+}
+
+.section_carte button {
+    color: #ffffff;
+    background-color: #FFB714;
+}
+
+.section_carte button:hover {
+    color: #ffffff;
+    background-color: #d3980e;
+}
+
+
+.map-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+    margin-bottom: 1rem;
+}
+
+.map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.section_avis {
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+}
+
+.section_avis h2 {
+    color: #000;
+}
+
+.section_avis textarea {
+    resize: none;
+}
+
+.section_avis h4 {
+    color: #333;
+    font-size: 1.3rem;
+}
+
+.section_avis p {
+    color: #555;
+}
+
+.section_avis button {
+    color: #ffffff;
+    background-color: #f84771;
+}
+
+.section_avis button:hover {
+    color: #ffffff;
+    background-color: #d2365e;
+}
+
+

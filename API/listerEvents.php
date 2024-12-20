@@ -58,6 +58,7 @@ $sql = "
 		c.id_cat_events,
 		c.nom AS nom_cat,
 		e.id_events AS id_event,
+
 		e.nom AS nom_event,
 		e.date_events,
 		e.alt_img,

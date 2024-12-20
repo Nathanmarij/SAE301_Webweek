@@ -4,6 +4,10 @@ include_once("../config/ConfigBDD.php");
 include_once("../class/Users.php");
 include_once("../class/ActionsBDD.php");
 
+if (!isset($_SESSION["id_users"])) {
+    header("Location: ./connexion_compte.php");
+    exit();
+} else {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $actionsBDD = ActionsBDD::getInstance();
 
@@ -33,7 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Préparer le HTML des avis à renvoyer
 $avisHTML = "";
 foreach ($avis as $dAvis) {
-    $avisHTML .= "<div><strong>{$dAvis['nom']} {$dAvis['prenom']}</strong><p>{$dAvis['description']}</p></div>";
+
+    $avisHTML .= "<div class='container'><strong>{$dAvis['nom']} {$dAvis['prenom']}</strong><p>{$dAvis['description']}</p></div>";
 }
 
 echo json_encode([
@@ -48,6 +53,7 @@ echo json_encode(["status" => "error", "avisError" => "L'avis n'a pas pu étre a
 //header("Location: ../eventid.php?id=$id");
 //var_dump( $_POST["commentaire"]);
 //$_GET["commentaire"] = $_POST["commentaire"];
+}
 }
 //test 2
 ?>
