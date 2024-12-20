@@ -18,7 +18,7 @@ function chargerUtilisateurs(page = 1, recherche = '') {
    const offset = (page - 1) * limit; // Calculer le décalage
 
    // construire l'URL avec les paramètres de recherche et de pagination
-   const url = `../API/listerUsers.php?limit=${limit}&offset=${offset}&q=${encodeURIComponent(recherche)}`;
+   const url = `../API/avisGestion.php?limit=${limit}&offset=${offset}&q=${encodeURIComponent(recherche)}`;
 
    xhttp.open("GET", url, true);
    xhttp.onreadystatechange = function () {
@@ -80,16 +80,17 @@ function afficherPagination(totalPages, pageActuelle) {
    }
 }
 
+
 function init() {
    const rechercheInput = document.getElementById('recherche-input');
 
    // Charger les utilisateurs dès le départ
    chargerUtilisateurs(1);
 
-   // Ajouter un événement pour la recherche
+   // ajouter un événement pour la recherche
    if (rechercheInput) {
       rechercheInput.addEventListener('input', function () {
-         chargerUtilisateurs(1, this.value); // Recharger avec le terme recherché
+         chargerUtilisateurs(1, this.value); 
       });
    }
 }

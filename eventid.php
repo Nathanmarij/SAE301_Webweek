@@ -99,10 +99,11 @@ function valider_input($donnees)
                 <!-- Affichage des avis -->
                 <div id="avisList">
                     <?php
-                    $reqAvis = "SELECT * FROM avis WHERE id_events = ?";
+                    $reqAvis = "SELECT u.nom, u.prenom, a.description,a.id_events FROM avis as a JOIN 
+                    users AS u ON a.id_users = u.id_users WHERE id_events = ?";
                     $avis = ActionsBDD::getInstance()->getDonnees($reqAvis, [$eventId]);
                     foreach ($avis as $dAvis) {
-                        echo "<div><strong>{$_SESSION['nom']}</strong><p>{$dAvis['description']}</p></div>";
+                        echo "<div><strong>{$dAvis['nom']} {$dAvis['prenom']}</strong><p>{$dAvis['description']}</p></div>";
                     }
                     ?>
                 </div>

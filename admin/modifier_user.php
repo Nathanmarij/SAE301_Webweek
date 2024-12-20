@@ -5,13 +5,12 @@ require_once('../class/Users.php');
 require_once('fonctions/verifierConnexionEtDroitsAdmin.php');
 
 // vérifier si la personne a le droit à cette page
-//verifierConnexionEtDroits();
+verifierConnexionEtDroits();
 
 $id_user = isset($_GET['id']) ? intval($_GET['id']) : 0;
 if (!$id_user) {
    die("ID utilisateur invalide");
-}
-$_SESSION['id_user_m'] = $id_user;  // Stocker l'ID dans la session
+} 
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -85,105 +84,7 @@ $_SESSION['id_user_m'] = $id_user;  // Stocker l'ID dans la session
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <script>
-   $(document).ready(function() {
-
-      // stocker les valeurs actuelles 
-      let currentNom = "", currentPrenom = "", currentEmail = "", currentTelephone = "", currentDateNaissance = "";
-
-      // récupérer les données de l'utilisateur
-      function recupererUtilisateur(id) {
-        $.ajax({
-            url: "../API/recupererInfoUser.php",  
-            method: "GET",
-            dataType: "json",  
-            data: { id: id },  
-            success: function(response) {
-               if (response.status === "OK" && response.user) {
-                 // console.log(response.user);
-                 // remplir les champs 
-               $('#nom').val(response.user.nom);
-               $('#prenom').val(response.user.prenom);
-               $('#email').val(response.user.mail);
-               $('#telephone').val(response.user.telephone);
-               $('#date_naissance').val(response.user.date_naissance);
-
-               // sauvegarder les valeurs actuelles
-               currentNom = response.user.nom;
-               currentPrenom = response.user.prenom;
-               currentEmail = response.user.mail;
-               currentTelephone = response.user.telephone;
-               currentDateNaissance = response.user.date_naissance;
-               } else {
-                  window.location.href = "liste_users.php";
-               }
-            },
-            error: function(xhr, status, error) {
-                console.error("Erreur AJAX:", error);
-                alert("Une erreur est survenue lors de la récupération des données.");
-            }
-        });
-      }
-
-      // fonction pour modifier les données de l'utilisateur
-      function modifierUtilisateur(id) {
-         const messageDiv = document.getElementById('message');
-         let nom = $('#nom').val();
-         
-         let prenom = $('#prenom').val();
-        //console.log(prenom);
-         let email = $('#email').val();
-         let telephone = $('#telephone').val();
-         let date_naissance = $('#date_naissance').val();
-
-         if (!nom || !prenom || !email || !telephone || !date_naissance) {
-            messageDiv.innerHTML = '<div class="alert alert-danger">Tous les champs sont obligatoires.</div>';
-           // alert("Tous les champs sont obligatoires.");
-            return;
-         }
-
-         // ne faire la mise à jour que si le nom a changé
-         if (nom === currentNom && prenom === currentPrenom && email === currentEmail && telephone === currentTelephone && date_naissance === currentDateNaissance) {
-            messageDiv.innerHTML = '<div class="alert alert-warning">Aucune modification effectuée.</div>';
-            //alert("Aucune modification effectuée.");
-            return;
-         }
-
-
-        $.ajax({
-            url: "../API/modifierInfosUsers.php?id=" + id,
-            method: "POST",
-            dataType: "json",
-            data: { nom: nom, prenom: prenom, mail: email, telephone: telephone, date_naissance: date_naissance },
-            success: function(response) {
-               let messageDiv = $('#message');
-               if (response.status === "OK") {
-                  messageDiv.html('<div class="alert alert-success">' + response.message + '</div>');
-                  currentNom = nom;
-                  currentPrenom = prenom;
-                  currentEmail = email;
-                  currentTelephone = telephone;
-                  currentDateNaissance = date_naissance;
-               } else {
-                  messageDiv.html('<div class="alert alert-warning">' + response.message + '</div>');
-               }
-            },
-            error: function(xhr, status, error) {
-               alert("Une erreur est survenue lors de la modification des données.");
-            }
-        });
-      }
-
-      let id_user = <?php echo $_SESSION['id_user_m']; ?>;
-      recupererUtilisateur(id_user); // récupère les informations de l'utilisateur
-
-      // soumettre le formulaire
-      $('#testForm').submit(function(event) {
-        event.preventDefault();
-        modifierUtilisateur(id_user); 
-      });
-   });
-  </script>
+  <script src="../assets/JS/script_modificationUser.js"></script>
 
 <script src="../assets/JS/script_admin.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

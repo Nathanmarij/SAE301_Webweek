@@ -6,37 +6,35 @@
                <div class="myApp-nav-link-icon"><i class="fas fa-table"></i></div>
                Tableau de bord 
             </a>
+
+            <div class="myApp-sidenav-menu-heading  text-danger">Configurations</div>
+            <a class="nav-link  text-danger" href="configuration.php" >
+               <div class="myApp-nav-link-icon  text-danger"><i class="fas fa-question"></i></div>
+               Faire configuration
+            </a>
+
             <div class="myApp-sidenav-menu-heading">Menu</div>
+
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#users" aria-expanded="false" aria-controls="users">
                <div class="myApp-nav-link-icon"><i class="fas fa-users"></i></div>
                Utilisateurs
                <div class="myApp-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
             </a>
             <div class="collapse" id="users">
-               
-               <nav class="myApp-sidenav-menu-nested nav accordion" id="users">
-                  <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#gestionUsers" aria-expanded="false" aria-controls="gestionUsers">
-                        Gestions Utilisateurs
-                        <div class="myApp-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                  </a>
-                  <div class="collapse" id="gestionUsers">
-                        <nav class="myApp-sidenav-menu-nested nav">
-                           <a class="nav-link" href="#">Ajouter utilisateur</a>
-                           <a class="nav-link" href="liste_users.php">Liste utilisateurs</a>
-                           <a class="nav-link" href="#">Activer compte utilisateur</a>
-                        </nav>
-                  </div>
-                  <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#events" aria-expanded="false" aria-controls="events">
-                        Gestion Réservations
-                        <div class="myApp-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                  </a>
-                  <div class="collapse" id="events">
-                        <nav class="myApp-sidenav-menu-nested nav">
-                           <a class="nav-link" href="#">Liste réservations</a>
-                        </nav>
-                  </div>
+               <nav class="myApp-sidenav-menu-nested nav">
+                  <a class="nav-link" href="ajouter_user.php">Ajouter utilisateur</a>
+                  <a class="nav-link" href="liste_users.php">Liste utilisateurs</a>
+                  <a class="nav-link" href="activer_compte_user.php">Activer compte utilisateur</a>
                </nav>
             </div>
+
+
+            <a class="nav-link" href="liste_reservations.php" >
+               <div class="myApp-nav-link-icon"><i class="fas fa-list"></i></div>
+               Liste réservations
+            </a>
+
+
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#evenements" aria-expanded="false" aria-controls="evenements">
                <div class="myApp-nav-link-icon"><i class="fas fa-calendar-days"></i></div>
                Évènements
@@ -44,10 +42,12 @@
             </a>
             <div class="collapse" id="evenements">
                <nav class="myApp-sidenav-menu-nested nav">
-                  <a class="nav-link" href="#">Ajouter évènement</a>
-                  <a class="nav-link" href="#">Liste évènements</a>
+                  <a class="nav-link" href="ajouter_events.php">Ajouter évènement</a>
+                  <a class="nav-link" href="liste_events.php">Liste évènements</a>
                </nav>
             </div>
+
+
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#avis" aria-expanded="false" aria-controls="avis">
                <div class="myApp-nav-link-icon"><i class="fas fa-comment"></i></div>
                Avis
@@ -55,8 +55,7 @@
             </a>
             <div class="collapse" id="avis">
                <nav class="myApp-sidenav-menu-nested nav">
-                  <a class="nav-link" href="#">Gestions avis</a>
-                  <a class="nav-link" href="#">Avis suspects</a>
+                  <a class="nav-link" href="gestions_avis.php">Gestions avis</a>
                </nav>
             </div>
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#admin" aria-expanded="false" aria-controls="admin">
@@ -66,9 +65,8 @@
             </a>
             <div class="collapse" id="admin">
                <nav class="myApp-sidenav-menu-nested nav">
-                  <a class="nav-link" href="#">Ajouter administrateur</a>
-                  <a class="nav-link" href="#">Liste administrateurs</a>
-                  <a class="nav-link" href="#">Gestion rôles</a>
+                  <a class="nav-link" href="liste_admins.php">Liste administrateurs</a>
+                  <a class="nav-link" href="gestion_roles.php">Gestion rôles</a>
                </nav>
             </div>
          </div>

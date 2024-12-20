@@ -14,11 +14,11 @@ function viderPagination() {
 // fonction pour charger les utilisateurs depuis l'API
 function chargerUtilisateurs(page = 1, recherche = '') {
    const xhttp = new XMLHttpRequest();
-   const limit = 10; // Nombre d'utilisateurs par page
-   const offset = (page - 1) * limit; // Calculer le décalage
+   const limit = 10; 
+   const offset = (page - 1) * limit; 
 
    // construire l'URL avec les paramètres de recherche et de pagination
-   const url = `../API/listerUsers.php?limit=${limit}&offset=${offset}&q=${encodeURIComponent(recherche)}`;
+   const url = `../API/listerReservations.php?limit=${limit}&offset=${offset}&q=${encodeURIComponent(recherche)}`;
 
    xhttp.open("GET", url, true);
    xhttp.onreadystatechange = function () {
@@ -27,19 +27,17 @@ function chargerUtilisateurs(page = 1, recherche = '') {
                const response = JSON.parse(this.responseText);
 
                if (response.status === "OK" && response.users && response.users.length > 0) {
-                  // Vider les utilisateurs et mettre à jour la table
+                  // vider les utilisateurs et mettre à jour la table
                   viderTableUtilisateurs();
                   const template = document.getElementById("template-users").innerHTML;
                   const rendered = Mustache.render(template, { users: response.users });
                   document.getElementById("users-container").innerHTML = rendered;
 
-                  // Mettre à jour la pagination
                   afficherPagination(response.totalPages, page);
                } else {
-                   // Si aucun utilisateur n'est trouvé
                   viderTableUtilisateurs();
                   viderPagination();
-                  document.getElementById("users-container").innerHTML = "<tr><td colspan='7' class='text-center'>Aucun utilisateur trouvé</td></tr>";
+                  document.getElementById("users-container").innerHTML = "<tr><td colspan='7' class='text-center'>Aucune réservation correspondante</td></tr>";
                }
            } catch (e) {
                console.error("Erreur lors du traitement des données JSON :", e);

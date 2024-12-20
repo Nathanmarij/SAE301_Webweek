@@ -14,7 +14,7 @@ verifierConnexionEtDroits();
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width,initial-scale=1">
-   <title>Liste des utilisateurs - Espace Administrateur</title>
+   <title>Liste des administrateurs - Espace Administrateur</title>
    <meta name="description" content=""/>
    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
    <!-- Lien vers la feuille de style Bootstrap 5 -->
@@ -24,7 +24,7 @@ verifierConnexionEtDroits();
    <!-- Lien vers le fichier CSS personnalisé -->
    <link href="../assets/css/styles_admin.css" rel="stylesheet" />
 </head>
-<body data-role="<?php echo $_SESSION['role']; ?>">
+<body class="sb-nav-fixed">
    <?php include('includes/nav.php'); ?>
    <div id="mySidebar">
       <?php include('includes/menu.php'); ?>
@@ -32,11 +32,11 @@ verifierConnexionEtDroits();
       <div id="myContenu">
          <main>
             <div class="container-fluid px-4">
-               <h1 class="mt-4"><img src="../assets/images/half-wheel-yellow.svg" class="img-fluid" width="32" height="auto" alt=""> Liste des utilisateurs</h1>
+               <h1 class="mt-4"><img src="../assets/images/half-wheel-yellow.svg" class="img-fluid" width="32" height="auto" alt=""> Liste des administrateurs</h1>
                <ol class="breadcrumb mb-4">
-                  <li class="breadcrumb-item"><a class="text-decoration-none" href="#">Utilisateurs </a></li>
-                  <li class="breadcrumb-item"><a class="text-decoration-none" href="#">Gestions utilisateurs</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Liste </li>
+                  <li class="breadcrumb-item"><a class="text-decoration-none" href="#">Administrateurs </a></li>
+                  <li class="breadcrumb-item"><a class="text-decoration-none" href="#">Gestions admin</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Liste admins</li>
                </ol>
                <!-- Toast -->
                <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100">
@@ -100,7 +100,7 @@ verifierConnexionEtDroits();
          <td class="text-center">
             <a href="afficher_info_user.php?id={{id_users}}" class="btn text-white bg-primary btn-sm"><i class="fas fa-eye"></i> </a>
             <a href="modifier_user.php?id={{id_users}}" class="btn text-white bg-warning btn-sm"><i class="fas fa-edit"></i> </a>
-            <button class="super-admin-seul btn text-white bg-danger btn-sm supprimer-user" data-id="{{id_users}}">
+            <button class="btn text-white bg-danger btn-sm supprimer-user" data-id="{{id_users}}">
                <i class="fas fa-trash"></i> 
             </button>
          </td>
@@ -110,11 +110,12 @@ verifierConnexionEtDroits();
    <!-- jQuery -->
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    
+   
    <script src="../assets/JS/script_suppressionUser.js"></script>
    <script src="../assets/JS/mustache.min.js"></script>
    
    <script src="../assets/JS/script_admin.js"></script>
-   <script src="../assets/JS/script_users.js"></script>
+   <script src="../assets/JS/script_admins.js"></script>
 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
