@@ -18,7 +18,7 @@ function chargerUtilisateurs(page = 1, recherche = '') {
    const offset = (page - 1) * limit; // Calculer le décalage
 
    // construire l'URL avec les paramètres de recherche et de pagination
-   const url = `../API/listerUsers.php?limit=${limit}&offset=${offset}&q=${encodeURIComponent(recherche)}`;
+   const url = `../API/listerAdmins.php?limit=${limit}&offset=${offset}&q=${encodeURIComponent(recherche)}`;
 
    xhttp.open("GET", url, true);
    xhttp.onreadystatechange = function () {

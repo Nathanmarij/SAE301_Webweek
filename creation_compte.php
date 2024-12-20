@@ -56,7 +56,6 @@
             <label for="mdp" class="form-label">Mot de passe<span class="text-danger">*</span></label>
             <input type="password" class="form-control" id="mdp" name="mdp" >
             <div id="mdpError" class="error"></div>
-            
           </div>
         </div>
         <div class="col-12 col-lg-6 col-md-12 col-sm-12">

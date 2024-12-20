@@ -15,14 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
    exit;
 }
 
-// vérification si l'ID est dans la session
-if (!isset($_SESSION['id_user_m']) || empty($_SESSION['id_user_m'])) {
-   echo json_encode(["status" => "error", "message" => "ID utilisateur manquant."]);
-   exit;
-}
-
-// récupération de l'ID de l'utilisateur depuis la session
-$id_users = $_SESSION['id_user_m'];
+$id_users = isset($_POST['id_users']) ? intval($_POST['id_users']) : null;
 
 // récupération des données POST
 $nom = isset($_POST['nom']) ? $_POST['nom'] : null;

@@ -13,7 +13,7 @@
          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item " href="#!">Mon compte</a></li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="../deconnexion.php">Déconnexion <i class="fas fa-power-off"></i></a></li>
+            <li><a class="dropdown-item"  href="../fonctions/deconnexion.php?etat=1">Déconnexion <i class="fas fa-power-off"></i></a></li>
          </ul>
       </li>
    </ul>

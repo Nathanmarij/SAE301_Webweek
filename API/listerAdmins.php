@@ -20,6 +20,7 @@ $limit = isset($_GET['limit']) ? intval($_GET['limit']) : 10; // Limite par déf
 $sql = "
    SELECT 
       u.id_users,
+      u.id_roles,
       u.nom,
       u.prenom,
       u.mail,
@@ -30,7 +31,8 @@ $sql = "
    FROM 
       users AS u 
    WHERE
-      (u.nom LIKE :nom OR u.prenom LIKE :nom OR u.mail LIKE :nom OR u.statut_compte LIKE :nom)"; 
+      (u.nom LIKE :nom OR u.prenom LIKE :nom OR u.mail LIKE :nom OR u.statut_compte LIKE :nom)
+      AND u.id_roles IN (2, 3)"; 
 
 // ajouter la clause ORDER BY pour trier les résultats par id_users
 $sql .= " ORDER BY u.id_users DESC";
@@ -58,7 +60,7 @@ if (!empty($resultats)) {
 }
 
 // récupérer le nombre total d'utilisateurs pour calculer le nombre de pages
-$sqlTotal = "SELECT COUNT(id_users) AS total FROM users WHERE (nom LIKE :nom OR prenom LIKE :nom)";
+$sqlTotal = "SELECT COUNT(id_users) AS total FROM users WHERE (nom LIKE :nom OR prenom LIKE :nom) AND id_roles IN (2, 3)";
 $resultTotal = $recuperer->getDonnees($sqlTotal,$params);
 $totalUsers = $resultTotal[0]['total'];
 $donnees["totalPages"] = ceil($totalUsers / $limit);

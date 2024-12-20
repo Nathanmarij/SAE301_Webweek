@@ -9,7 +9,7 @@ require_once('fonctions/verifierConnexionEtDroitsAdmin.php');
 $stats = getDonneesStats();
 
 // vérifier si la personne a le droit à cette page
-//verifierConnexionEtDroits();
+verifierConnexionEtDroits();
 
 ?>
 <!DOCTYPE html>
@@ -27,7 +27,6 @@ $stats = getDonneesStats();
 
    <!-- Lien vers le fichier CSS personnalisé -->
    <link href="../assets/css/styles_admin.css" rel="stylesheet" />
-   <link href="style/styleFooter.css" rel="stylesheet"/>
 </head>
 <body class="sb-nav-fixed">
    <?php include('includes/nav.php'); ?>
@@ -73,7 +72,7 @@ $stats = getDonneesStats();
                            <h4>Stats <span class="float-end badge text-bg-secondary"><?= $stats['avis']; ?></span></h4>
                         </div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                              <a class="small text-white stretched-link" href="#">Liste avis</a>
+                              <a class="small text-white stretched-link" href="gestions_avis.php">Liste avis</a>
                               <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                         </div>
                      </div>
@@ -85,7 +84,7 @@ $stats = getDonneesStats();
                            <h4>Stats <span class="float-end badge text-bg-secondary"><?= $stats['reservation']; ?></span></h4>
                         </div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                           <a class="small text-white stretched-link" href="#">Liste réservations</a>
+                           <a class="small text-white stretched-link" href="liste_reservations.php">Liste réservations</a>
                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                         </div>
                      </div>
@@ -97,7 +96,7 @@ $stats = getDonneesStats();
                            <h4>Stats <span class="float-end badge text-bg-secondary"><?= $stats['admin']; ?></span></h4>
                         </div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                           <a class="small text-white stretched-link" href="#">Liste administrateurs</a>
+                           <a class="small text-white stretched-link" href="liste_admins.php">Liste administrateurs</a>
                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                         </div>
                      </div>

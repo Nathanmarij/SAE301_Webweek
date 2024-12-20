@@ -14,11 +14,11 @@ function viderPagination() {
 // fonction pour charger les utilisateurs depuis l'API
 function chargerUtilisateurs(page = 1, recherche = '') {
    const xhttp = new XMLHttpRequest();
-   const limit = 10; // Nombre d'utilisateurs par page
-   const offset = (page - 1) * limit; // Calculer le décalage
+   const limit = 10; 
+   const offset = (page - 1) * limit; 
 
    // construire l'URL avec les paramètres de recherche et de pagination
-   const url = `../API/listerUsers.php?limit=${limit}&offset=${offset}&q=${encodeURIComponent(recherche)}`;
+   const url = `../API/listerEvents.php?limit=${limit}&offset=${offset}&q=${encodeURIComponent(recherche)}`;
 
    xhttp.open("GET", url, true);
    xhttp.onreadystatechange = function () {
@@ -27,19 +27,17 @@ function chargerUtilisateurs(page = 1, recherche = '') {
                const response = JSON.parse(this.responseText);
 
                if (response.status === "OK" && response.users && response.users.length > 0) {
-                  // Vider les utilisateurs et mettre à jour la table
+                  // vider les utilisateurs et mettre à jour la table
                   viderTableUtilisateurs();
                   const template = document.getElementById("template-users").innerHTML;
                   const rendered = Mustache.render(template, { users: response.users });
                   document.getElementById("users-container").innerHTML = rendered;
 
-                  // Mettre à jour la pagination
                   afficherPagination(response.totalPages, page);
                } else {
-                   // Si aucun utilisateur n'est trouvé
                   viderTableUtilisateurs();
                   viderPagination();
-                  document.getElementById("users-container").innerHTML = "<tr><td colspan='7' class='text-center'>Aucun utilisateur trouvé</td></tr>";
+                  document.getElementById("users-container").innerHTML = "<tr><td colspan='7' class='text-center'>Aucune réservation correspondante</td></tr>";
                }
            } catch (e) {
                console.error("Erreur lors du traitement des données JSON :", e);
@@ -80,18 +78,71 @@ function afficherPagination(totalPages, pageActuelle) {
    }
 }
 
+function afficherMessage(message, type) {
+   const messageDiv = document.getElementById('message');
+   messageDiv.innerHTML = `<div class="alert alert-${type}" role="alert">${message}</div>`;
+   setTimeout(() => {
+      messageDiv.innerHTML = ''; 
+   }, 5000);
+}
+
+
+function supprimerEvent(event) {
+   const target = event.target.closest('.supprimer-user'); 
+   if (!target) return;
+
+   const idEvent = target.getAttribute('data-id'); 
+   if (!idEvent) {
+      afficherMessage("ID de l'événement non valide.", "danger");
+      return;
+   }
+
+   const confirmation = confirm("Êtes-vous sûr de vouloir supprimer cet événement ?");
+   if (!confirmation) return;
+
+   // requête AJAX pour supprimer
+   const formData = new FormData();
+   formData.append('action', 'supprimer');
+   formData.append('id_events', idEvent);
+
+   fetch('../API/listerEvents.php', {
+      method: 'POST',
+      body: formData
+   })
+   .then(response => response.json())
+   .then(data => {
+      if (data.status === 'success') {
+         afficherMessage(data.message, "success");
+         chargerUtilisateurs(1); 
+      } else {
+         afficherMessage(data.message, "danger");
+      }
+   })
+   .catch(error => {
+      console.error("Erreur lors de la suppression :", error);
+      afficherMessage("Une erreur est survenue lors de la suppression.", "danger");
+   });
+}
+
+
+
+
+
 function init() {
    const rechercheInput = document.getElementById('recherche-input');
 
    // Charger les utilisateurs dès le départ
    chargerUtilisateurs(1);
 
-   // Ajouter un événement pour la recherche
+   // ajouter un événement pour la recherche
    if (rechercheInput) {
       rechercheInput.addEventListener('input', function () {
-         chargerUtilisateurs(1, this.value); // Recharger avec le terme recherché
+         chargerUtilisateurs(1, this.value); 
       });
    }
+
+   // ajouter l'écouteur pour la suppression d'événements
+   document.addEventListener('click', supprimerEvent);
 }
 
 window.addEventListener("load", init);
