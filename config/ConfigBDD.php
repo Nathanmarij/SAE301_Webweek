@@ -7,7 +7,7 @@ class Database {
    private $port = '3306';
    private $db_name = 'sae_301_conservatoire';
    private $user_name = 'root';
-   private $password = 'root';
+   private $password = '';
 
    private function __construct(){
       $dsn = "mysql:host=$this->host;port=$this->port;dbname=$this->db_name";

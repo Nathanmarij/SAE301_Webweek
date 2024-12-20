@@ -1,6 +1,42 @@
 #mobile-header {
     display: none;
 }
+.select {
+    display: flex;
+    gap: 7vw; 
+    padding-left: 3vw;
+    position: relative;
+    justify-content: center;
+    margin-bottom: 5vw;
+}
+
+.select a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 3vw;
+}
+.select button{
+    background-color: #FFB714;
+    border: solid 2px #FFB714;
+    color: #FAFAFA;
+    font-weight: 600;
+    font-size: 1.5vw;
+    width: 20vw;
+    height: 4vw;
+    border-radius: 0.5vw;
+    transition: 0.3s ease, color 0.3s ease;
+}
+.select button:hover{
+    background-color: #FAFAFA;
+    color: #FFB714;
+    font-weight: 600;
+}
+.pasclick button{
+    background-color: #FAFAFA;
+    color: #FFB714;
+    font-weight: 600;
+}
 @media (max-width: 768px) {
     #mobile-header {
         display: block;
@@ -300,6 +336,42 @@ header {
     font-size: 5vw;
     font-weight: 500;
     text-align: center; 
+    .select {
+    display: flex;
+    gap: 7vw; 
+    padding-left: 3vw;
+    position: relative;
+    justify-content: center;
+    margin-bottom: 5vw;
+}
+
+.select a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 3vw;
+}
+.select button{
+    background-color: #FFB714;
+    border: solid 2px #FFB714;
+    color: #FAFAFA;
+    font-weight: 600;
+    font-size: 1.5vw;
+    width: 20vw;
+    height: 4vw;
+    border-radius: 0.5vw;
+    transition: 0.3s ease, color 0.3s ease;
+}
+.select button:hover{
+    background-color: #FAFAFA;
+    color: #FFB714;
+    font-weight: 600;
+}
+.pasclick button{
+    background-color: #FAFAFA;
+    color: #FFB714;
+    font-weight: 600;
+}
 }
 
 
@@ -410,5 +482,10 @@ header {
     .voir-plus a {
         font-size: 3vw; 
 
+    }
+    .select button{
+        width: 30vw;
+        height: 10vw;
+        font-size: 3vw;
     }
 }

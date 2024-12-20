@@ -18,10 +18,10 @@
                     <a class="nav-link" href="event.php" title="Evénements">Evénements</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="reservation.php" title="Mes réservations">Mes réservations</a>
+                <a class="nav-link" title="Mes réservations"  href="<?= $href2 ?>">Mes réservations</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="compteUtilisateur.php" title="Compte"><svg
+                <a class="nav-link" title="Compte"  href="<?= $href ?>"><svg
                             xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                             class="bi bi-person" viewBox="0 0 16 16">
                             <path

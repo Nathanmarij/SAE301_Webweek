@@ -1,7 +1,8 @@
 <?php
+session_start();
 include_once("config/ConfigBDD.php");
 include_once("class/ActionsBDD.php");
-
+$action = isset($_SESSION['id_users']) ? 'traitements/t_form_reservation.php' : 'connexion_compte.php';
 /*if (!isset($_SESSION['email'])) {
     header("Location: ./connexion_compte.php");
     exit();
@@ -10,8 +11,8 @@ include_once("class/ActionsBDD.php");
 if (isset($_GET['id'])) {
     $eventId = valider_input($_GET['id']);
 
-    $requete = "SELECT e.id_events, e.nom, e.date_events, e.description, e.prix, e.alt_img, e.url_img, 
-       e.nb_places_prevues, e.nb_places_reservees, e.date_creation, l.adresse, c.nom_type
+    $requete = "SELECT e.id_events, e.nom AS nom_event , e.date_events, e.description, e.prix, e.alt_img, e.url_img, 
+       e.nb_places_prevues, e.nb_places_reservees, e.date_creation, l.adresse, c.nom AS nom_cat
     FROM events e
     JOIN 
 		cat_events AS c ON c.id_cat_events  = e.id_cat_events
@@ -51,8 +52,9 @@ function valider_input($donnees)
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Évènements - <?php echo htmlspecialchars($event['nom']); ?></title>
+    <title>Évènements - <?php echo htmlspecialchars($event['nom_event']); ?></title>
     <meta name="description" content="" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <link href="style/style.css" rel="stylesheet">
     <link href="style/styleFooter.css" rel="stylesheet">
@@ -73,18 +75,18 @@ function valider_input($donnees)
         <div class="container my-5 section_event">
             <div class="row align-items-center">
                 <div class="img_event col-md-5 ">
-                    <img src="img/affiche-1.jpeg" class="img-fluid"
-                        alt="<?php echo htmlspecialchars($event['nom']); ?>">
+                    <img src="assets/images/events/<?php echo $event["url_img"]; ?>" class="img-fluid"
+                        alt="<?php echo htmlspecialchars($event['nom_event']); ?>">
                 </div>
                 <div class="section_info_event col-md-7 ">
-                    <h1 class="fw-bold text-uppercase"><?php echo htmlspecialchars($event['nom']); ?></h1>
+                    <h1 class="fw-bold text-uppercase"><?php echo htmlspecialchars($event['nom_event']); ?></h1>
                     <h2><?php echo htmlspecialchars($event['date_events']); ?></h2>
                     <h2><?php echo htmlspecialchars($event['adresse']); ?></h2>
                     <p class="mt-4"><?php echo nl2br(htmlspecialchars($event['description'])); ?></p>
                     <div class="btn_info mt-4 text-center"><br>
                         <h3>Prix d'entrée: <?php echo htmlspecialchars($event['prix']); ?> €</h3>
 
-                        <form id="reservationForm" method="POST" action="traitements/t_form_reservation.php"
+                        <form id="reservationForm" method="POST" action="<?= $action ?>""
                             class="d-flex justify-content-center align-items-center">
                             <input type="submit" id="submit" name="Réserver" value="RÉSERVER" class="btn fw-bold px-4">
                             <input type="number" name="nb_places" id="nb_places" value="1" min="1" max="<?php echo $rest?>"

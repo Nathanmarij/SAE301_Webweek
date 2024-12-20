@@ -5,6 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 $href = isset($_SESSION['id_users']) ? 'compteUtilisateur.php' : 'connexion_compte.php';
+$href2 = isset($_SESSION['id_users']) ? 'reservation_aVenir.php' : 'connexion_compte.php';
 ?>
 <header>
     <div class="mobile-header" id="mobile-header">

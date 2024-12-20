@@ -13,7 +13,7 @@
                     <a class="nav-link" href="event.php" title="Evénements">Evénements</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="reservation.php" title="Mes réservations">Mes réservations</a>
+                    <a class="nav-link" title="Mes réservations"  href="<?= $href2 ?>">Mes réservations</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" title="Compte"  href="<?= $href ?>">
