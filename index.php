@@ -157,4 +157,3 @@ $mois_fr = ['Jan' => 'Jan', 'Feb' => 'Fév', 'Mar' => 'Mars', 'Apr' => 'Avr', 'M
     ?>
 </body>
 
-</html>
