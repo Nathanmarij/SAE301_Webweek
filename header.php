@@ -1,3 +1,9 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$href = isset($_SESSION['id_users']) ? 'compteUtilisateur.php' : 'connexion_compte.php';
+?>
 <header>
     <div class="mobile-header" id="mobile-header">
         <?php include 'header_mobile.php'; ?>
