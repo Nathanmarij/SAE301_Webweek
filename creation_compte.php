@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="Conservatoire, Agglomération du Puy-en-Velay, compte, informations personnelles, services personnalisés, réservations">
   <title>Je crée mon compte - Conservatoire de l'Agglomération du Puy-en-Velay</title>
   <meta name="description" content=""/>
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">

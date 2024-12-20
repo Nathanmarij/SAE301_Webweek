@@ -47,7 +47,7 @@ function valider_input($donnees)
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="Événements, Danse, Musique, Théâtre, Réservation simple, Concervatoire du Puy-en-Velay, Culture, Sorties">
     <title>Évènements - <?php echo htmlspecialchars($event['nom']); ?></title>
     <meta name="description" content="" />
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
