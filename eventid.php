@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
     $eventId = valider_input($_GET['id']);
 
     $requete = "SELECT e.id_events, e.nom, e.date_events, e.description, e.prix, e.alt_img, e.url_img, 
-       e.nb_places_prevues, e.nb_places_reservees, e.date_creation, l.adresse, c.nom
+       e.nb_places_prevues, e.nb_places_reservees, e.date_creation, l.adresse, c.nom_type
     FROM events e
     JOIN 
 		cat_events AS c ON c.id_cat_events  = e.id_cat_events
@@ -28,6 +28,9 @@ if (isset($_GET['id'])) {
     }
 
     $event = $eventDetails[0];
+    $prevu = $event['nb_places_prevues'];
+    $reserv = $event['nb_places_reservees'];
+    $rest = $prevu - $reserv;
 } else {
     header("Location: ./event.php");
 }
@@ -81,13 +84,14 @@ function valider_input($donnees)
                     <div class="btn_info mt-4 text-center"><br>
                         <h3>Prix d'entrée: <?php echo htmlspecialchars($event['prix']); ?> €</h3>
 
-                        <form method="POST" action="placesTraitement.php"
+                        <form id="reservationForm" method="POST" action="traitements/t_form_reservation.php"
                             class="d-flex justify-content-center align-items-center">
                             <input type="submit" id="submit" name="Réserver" value="RÉSERVER" class="btn fw-bold px-4">
-                            <input type="number" name="nb_places" id="nb_places" value="1" min="1" max="23"
+                            <input type="number" name="nb_places" id="nb_places" value="1" min="1" max="<?php echo $rest?>"
                                 class="form-control text-center" style="width: 60px;">
+                            <input type="hidden" name="id_event" value="<?php echo "$eventId"; ?>">
                         </form>
-                        <p class="mt-2 text-center">23 places restantes</p>
+                        <p class="mt-2 text-center"><?php echo $rest?> places restantes</p>
                     </div>
                 </div>
             </div>

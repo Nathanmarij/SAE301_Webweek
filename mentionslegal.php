@@ -3,11 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="Mentions légales,Informations générales,Conditions générales d'utilisation, Propriété intellectuelle, Données personnelles, Droits des utilisateurs
+    Collecte des données">
     <title>Mentions légales</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style/mentions.css">
-    
 
 </head>
 <header> <?php include("header.php"); ?></header>
@@ -34,7 +36,7 @@
                         <a href="mailto:ateliersdesarts@lepuyenvelay.fr">ateliersdesarts@lepuyenvelay.fr</a><br>
                     </p>
                     <p>
-                        Hébergeur du site: (Nom de l’hébergeur)
+                        Hébergeur du site: Hostinger
                     </p>
                 </div>
                 <h2 class="fw-bold">2. Conditions Générales d'Utilisation (CGU)</h2>

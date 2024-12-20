@@ -1,3 +1,15 @@
+#mobile-header {
+    display: none;
+}
+@media (max-width: 768px) {
+    #mobile-header {
+        display: block;
+    }
+    #desktop-header {
+        display: none;
+    }
+}
+
 .dm-serif-text-regular {
     font-family: "DM Serif Text", serif;
     font-weight: 400;
@@ -34,6 +46,10 @@ header {
 .nav-item a {
     margin-left: 2vw;
     margin-right: 2vw;
+}
+.navbar-toggler {
+    border: none;
+    background-color: none;
 }
 .presentation {
     margin-top: 4vw;
