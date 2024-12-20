@@ -5,6 +5,37 @@ session_start();
    header("Location: ./connexion_compte.php"); 
    exit(); 
 }*/
+
+/*mise en place du filtre
+include_once("config/ConfigBDD.php");
+include_once("class/ActionsBDD.php");
+
+
+
+/* Récupération des SAE 
+$requete='SELECT * from cat_events;
+';
+$params = [];
+
+$resultats = ActionsBDD::getInstance()->getDonnees($requete, $params);
+$tableauSAES = $resultats;
+
+
+
+$nbSAES=count($tableauSAES);
+
+/*récupération des événements
+$catId = isset($_GET['id_cat_events']) ? valider_input($_GET['id_cat_events']) : null;
+
+$requete = 'SELECT e.*, l.id_lieux, l.adresse, c.nom
+FROM events AS e 
+JOIN lieux AS l ON l.id_lieux = e.id_lieux
+JOIN cat_events AS c ON c.id_cat_events = e.id_cat_events';
+$params = [':id_cat_events' => $catId];
+
+$events = ActionsBDD::getInstance()->getDonnees($requete, $params);
+
+$nbCat = count($events);*/
 ?>
 
 <!DOCTYPE html>
@@ -51,29 +82,31 @@ session_start();
                   </div>
                </div>
                <div class="card-n-body">
-                  <div class="title">{{nom}}</div>
+                  <div class="title">{{nom_event}}</div>
                   <div class="details">
                      <span>
-                     <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/46557/Time.svg" />
-                     <div class="date">{{date_events}}</div>
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/46557/Time.svg" />
+                        <div class="date">{{date_events}}</div>
                      </span>
                      <span>
-                     <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/46557/Pin.svg" />
-                     <div class="location">{{adresse}}</div>
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/46557/Pin.svg" />
+                        <div class="location">{{adresse}}</div>
                      </span>
                   </div>
                </div>
-               </div>
-            </a>
-         </div>
-         {{/events}}
-      </script>
+            </div>
+         </a>
+      </div>
+   {{/events}}
+   </script>
 
-      <script src="assets/JS/mustache.min.js"></script>
-      <script src="assets/JS/script.js"></script>
-      <?php 
-         include("footer.html");
-      ?>
+   <script src="assets/JS/mustache.min.js"></script>
+   <script src="assets/JS/script.js"></script>
+  <!-- <script src="/assets/JS/script_filter.js"></script>-->
+   <?php
+   include("footer.html");
+   ?>
 
-   </body>
+</body>
+
 </html>

@@ -56,6 +56,12 @@ $events_past = $BDD->getDonnees($sql_past, $params_past);
     ?>
     <div class="main">
         <div class="container">
+        <div class="row">
+                <div class="col select">
+                    <a href="reservation_aVenir.php"><button type="button">Spectacles à venir</button></a>
+                    <a href="reservation_passe.php" class="pasclick"><button type="button">Spectacles passé</button></a>
+                </div>            
+            </div>
             <!-- Spectacles passés -->
             <h2>Spectacles passés</h2>
             <div class="row">

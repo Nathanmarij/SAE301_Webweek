@@ -13,9 +13,9 @@ $donnees["status"] = "OK";
 $sql = "
 	SELECT 
 		c.id_cat_events,
-		c.nom,
+	c.nom AS nom_cat,
 		e.id_events,
-		e.nom,
+		e.nom AS nom_event,
 		e.date_events,
 		e.alt_img,
 		e.url_img,
