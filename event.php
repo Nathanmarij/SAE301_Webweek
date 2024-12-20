@@ -4,7 +4,7 @@ session_start();
 /*if (!isset($_SESSION['email'])) {
    header("Location: ./connexion_compte.php"); 
    exit(); 
-}*/
+}
 
 //mise en place du filtre
 include_once("config/ConfigBDD.php");
@@ -12,7 +12,7 @@ include_once("class/ActionsBDD.php");
 
 
 
-/* Récupération des SAE */
+/* Récupération des SAE 
 $requete='SELECT * from cat_events;
 ';
 $params = [];
@@ -63,7 +63,7 @@ $nbCat = count($events);*/
 <!-- FILTRE -->
    <div class="divfiltre container my-5">
       <h1 class="text-center mb-4 fw-bold">Les évènements</h1>
-      <div class="d-flex justify-content-center mb-4">
+      <!--<div class="d-flex justify-content-center mb-4">
          <form method="get">
             <select name="id_cat_events" id="selectCat">
                <?php
@@ -76,7 +76,7 @@ $nbCat = count($events);*/
          <a href="#" class="btn btn-link active text-uppercase text-danger fw-bold me-3">Musique</a>
          <a href="#" class="btn btn-link text-uppercase text-dark me-3">Théatre</a>
          <a href="#" class="btn btn-link text-uppercase text-warning">Danse</a>
-      </div>
+      </div>-->
       <div class="row g-4 m-auto align-items-center" id="events-container"></div>
    </div>
    <div id="divevents"></div>
@@ -113,7 +113,7 @@ $nbCat = count($events);*/
 
    <script src="assets/JS/mustache.min.js"></script>
    <script src="assets/JS/script.js"></script>
-   <script src="/assets/JS/script_filter.js"></script>
+  <!-- <script src="/assets/JS/script_filter.js"></script>-->
    <?php
    include("footer.html");
    ?>
