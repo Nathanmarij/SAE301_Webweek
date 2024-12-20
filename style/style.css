@@ -35,6 +35,10 @@ header {
     margin-left: 2vw;
     margin-right: 2vw;
 }
+.navbar-toggler {
+    border: none;
+    background-color: none;
+}
 .presentation {
     margin-top: 4vw;
     margin-bottom: 4vw;
