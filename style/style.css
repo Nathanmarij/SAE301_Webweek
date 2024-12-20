@@ -1,3 +1,15 @@
+#mobile-header {
+    display: none;
+}
+@media (max-width: 768px) {
+    #mobile-header {
+        display: block;
+    }
+    #desktop-header {
+        display: none;
+    }
+}
+
 .dm-serif-text-regular {
     font-family: "DM Serif Text", serif;
     font-weight: 400;
